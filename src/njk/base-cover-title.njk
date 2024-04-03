@@ -1,0 +1,52 @@
+<article id="{{options.id}}" class="cover-title-slide {{options.article_classes}}">
+
+	<section class="page01 content {{ options.content_classes }} {% if options.cweKey %}cwe-cover-title-slide{% endif %}">
+		{% if options.cweKey %}
+		<div class="cwe-cover-title-slide-image c-editable-image c-editable-image--empty-white"/>
+		{% endif %}
+
+    {% if options.includeHeaderLogo %}
+    <div class="rea-large-logo rea-large-logo--inverted o-transition--fade"></div>
+    {% endif %}
+
+		<section class="content-body">
+		{% block content %}
+		{% endblock %}
+
+		</section>
+	</section>
+
+  {% block footer %}
+	{% endblock %}
+</article>
+
+<script type="text/javascript">
+	{% block js_before %}
+	{% endblock %}
+
+	var $article = Bridge.Slides.getArticle();
+	var articleID = Bridge.Slides.getArticleID();
+
+	new Slide({
+		onRendered: function(){
+			attachDisclaimerEvents('article#{{options.id}}');
+			var $pageContainer = $article;
+
+			// Add class for IE10 specific hacks
+			if (GetIEVersion() === 10){
+				$article.addClass("ie10");
+			}
+
+			{% block js_rendered %}
+			{% endblock %}
+		},
+		onReady: function(){
+
+			{% block js_ready %}
+			{% endblock %}
+		}
+	});
+
+	{% block js_after %}
+	{% endblock %}
+</script>

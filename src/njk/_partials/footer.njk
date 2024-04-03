@@ -1,0 +1,37 @@
+{% macro data(footerData) %}
+
+	<div class="footer" {% if footerData.style == "list" %} data-toolbar="format list style color removeformat" data-companywide-editable="disclaimer-list-{{ footerData.id }}" {% endif %}>
+		
+		{% if footerData.disclaimer %}
+			{% if footerData.style == "list" %}
+				<ol class="footer__disclaimer">
+					{% for item in footerData.disclaimer %}
+						<li class="footer__disclaimer-item">{{ item|safe }}</li>
+					{% endfor %}
+				</ol>
+			{% else %}
+				<div class="footer__disclaimer">
+					{% for item in footerData.disclaimer %}
+						{% if footerData.id %}
+							<div 
+								class="footer__disclaimer-item"
+								{% if footerData.editable %}
+									data-companywide-editable="{{ footerData.id }}--{{ loop.index }}"
+								{% endif %}
+								data-toolbar="style"
+							>
+						{% else %}
+							<div 
+								class="footer__disclaimer-item"
+							>
+						{% endif %}
+						{{ item|safe }}</div>
+					{% endfor %}
+				</div>
+			{% endif %}
+		{% endif %}
+
+		<div class="{% if footerData.noLogo == null %}footer_rca-logo{% endif %}{% if footerData.invertedLogo %}footer_rca-logo-inverted{% endif %}{% if footerData.newLogo %} footer_rca-logo-new{% endif %}{% if footerData.newLogoInverted %} footer_rca-logo-new-inverted{% endif %}{% if footerData.igniteLogo %} footer_ignite-logo{% endif %}"></div>
+		
+	</div>
+{% endmacro %}

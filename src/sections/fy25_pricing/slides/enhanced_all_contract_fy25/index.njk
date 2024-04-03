@@ -1,0 +1,54 @@
+{% set options = {
+	id: "enhanced_all_contract_fy25",
+	article_classes: "",
+	ribbonless: true
+} %}
+{% set optionsHeader = {
+	includeReLogo: false
+} %}
+{% extends "./njk/base.njk" %}
+{# import header partial and add to header_block #}
+{% import "./njk/_partials/header-border.njk" as header %}
+{% block header_block %}
+    <header>
+        <dl>
+            <dd class="title">
+                Enhanced All contract
+            </dd>
+            <dd class="category">
+                Property Advertising
+            </dd>
+        </dl>
+    </header>
+{% endblock %}
+{% block content %}
+    <div class="slide-header-border__content">
+        <h1 class="slide-header-border__h1" data-companywide-editable="enhanced_all_contract_fy25_editable_title-6z9YIHPSFv">Be seen higher up in the search results at discounted<br/>rates with an Enhanced All contract</h1>
+    </div>
+    <div class="column-group column-group--12">
+        <div class="column column--span-6">
+            <div class="slide-content" data-companywide-editable="enhanced_all_contract_fy25_editable_slide_content-VM9L8k3cLQ">
+                <ul>
+                    <li>Enhanced listings appear above all Basic listings<br />with large images and agency branding.</li>
+                    <li>7x more views (on average) than a Basic listing.<sup>1</sup></li>
+                    <li>2x more property details page views (on average)<br />than a Basic listing.<sup>1</sup></li>
+                    <li>2x more average enquiries (email and phone) than<br />a Basic listing.<sup>1</sup></li>
+                    <li>2.2x more average saving and sharing interactions<br />than a Basic listing.<sup>1</sup></li>
+                    <li>Stay on Enhanced for life – your listing will remain<br />as Enhanced when it moves to sold or leased (if<br />Enhanced was your last purchased upgrade).</li>
+                </ul>
+            </div>
+        </div>
+        <div class="column column--span-6 column-image">
+            <div class="enhaced-all-contract-image"></div>
+        </div>
+    </div>
+    <footer class="o-footer slide-footer">
+        <div
+            class="disclaimer-target disclaimer"
+            data-companywide-editable="disclaimer-hGFvrWg11y"
+            data-toolbar="list style superscript removeformat">
+            <span>1. Data is trended nationally. RCA internal data, 1 January – 31 December 2023</span>
+        </div>
+        <div class="logo"></div>
+    </footer>
+{% endblock %}

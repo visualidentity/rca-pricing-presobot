@@ -1,0 +1,202 @@
+.tile {
+	max-width: 1680px;
+	margin: 0 auto;
+	display: flex;
+	flex-flow: row wrap;
+}
+
+.tile__child {
+	width: 296px;
+	height: 446px;
+	padding: 23px;
+	margin-right: 50px;
+	position: relative;
+	display: table;
+	transition: all 0.5s ease;
+
+	h4 {
+		color: white;
+	}
+
+	&--small {
+		margin-top: 42px;
+		height: 295px;
+
+		h4 {
+			@include font-size(26);
+		}
+	}
+
+	$mil: 0;
+	@for $i from 1 through 8 {
+		$mil: $mil + .2;
+		&--#{$i} {
+			transition-delay: #{$mil}s;
+		}
+	}
+}
+
+.title__child--svg-container {
+	height: 50px;
+	position: relative;
+}
+
+.tile__child--svg {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+
+	&-support {
+		@include icon(support);
+		width: 37.8px;
+		height: 37.8px;
+	}
+	&-webinar {
+		@include icon(webinar);
+		width: 40.58px;
+		height: 25.58px;
+	}
+	&-data {
+		@include icon(data);
+		width: 42.55px;
+		height: 28.59px;
+	}
+	&-business {
+		@include icon(business);
+		width: 56.49px;
+		height: 36.55px;
+	}
+	&-search {
+		@include icon(search);
+		width: 33.54px;
+		height: 33.54px;
+	}
+	&-property {
+		@include icon(property);
+		width: 42.64px;
+		height: 33.7px;
+	}
+	&-listing {
+		@include icon(listing);
+		width: 37.75px;
+		height: 36.73px;
+	}
+	&-pricing {
+		@include icon(pricing);
+		width: 42px;
+		height: 42px;
+	}
+	&-bullseye {
+		@include icon(bullseye);
+		width: 48px;
+		height: 47px;
+	}
+}
+
+.tile__child--caption {
+	color: white;
+	@include font-size(16);
+	vertical-align: bottom;
+    display: table-row-group;
+}
+
+.tile-extension {
+	margin-top: 208px;
+
+	.title__child--svg-container {
+		margin-bottom: 25px;
+	}
+
+	.tile__child {
+		height: 446px;
+		margin-top: 0;
+		&:nth-child(5) {
+			margin-right: 0;
+		}
+
+		h4 {
+			@include font-size(32);
+			@include font-weight(bold);
+		}
+	}
+
+	.tile__child--caption {
+		@include font-size(18);
+	}
+
+	.tile__child--svg {
+		&-support {
+			@include icon(support);
+			width: 47.4px;
+			height: 47.4px;
+		}
+		&-webinar {
+			@include icon(webinar);
+			width: 50px;
+			height: 31.51px;
+		}
+		&-data {
+			@include icon(data);
+			width: 50px;
+			height: 33.59px;
+		}
+		&-business {
+			@include icon(business);
+			width: 67.27px;
+			height: 43.52px;
+		}
+		&-search {
+			@include icon(search);
+			width: 43px;
+			height: 43px;
+		}
+		&-bulb {
+			@include icon(bulb);
+			width: 36px;
+			height: 55px;
+		}
+		&-area {
+			@include icon(area);
+			width: 45px;
+			height: 54px;
+		}
+		&-heart {
+			@include icon(heart);
+			width: 46px;
+			height: 42px;
+		}
+		&-hat {
+			@include icon(hat);
+			width: 65px;
+			height: 49px;
+		}
+		&-scatter {
+			@include icon(scatter);
+			width: 59px;
+			height: 32px;
+		}
+		&-message {
+			@include icon(message);
+			width: 57px;
+			height: 25px;
+		}
+	}
+}
+
+.preview {
+	.tile__child {
+		transition: none;
+		transition-delay: none;
+	}
+
+	.tile__child--removable:before {
+		content: '';
+		background: url('./img/png/minus.png');
+		background-size: contain;
+		width: 34px;
+		height: 34px;
+		position: absolute;
+		right: 5px;
+		top: 5px;
+	}
+}

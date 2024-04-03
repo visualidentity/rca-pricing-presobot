@@ -1,0 +1,224 @@
+{% macro data(headerData) %}
+{% set id = headerData.id %}
+{% set pretitle = headerData.pretitle %}
+{% set title = headerData.title %}
+{% set subtitle = headerData.subtitle %}
+{% set headingSize = headerData.headingSize %}
+{% set subtitleLight = headerData.subtitleLight %}
+{% set person = headerData.person %}
+{% set role = headerData.role %}
+{% set dropdown = headerData.dropdownFields %}
+{% set dropdownData = headerData.dropdownData %}
+{% set dropdownTwoData = headerData.dropdownTwoData %}
+{% set dropdownThreeData = headerData.dropdownThreeData %}
+{% set dropdownFourData = headerData.dropdownFourData %}
+{% set dropdownFiveData = headerData.dropdownFiveData %}
+{% set inversed = headerData.inversed %}
+{% set advantageLogo = headerData.advantageLogo %}
+{% set refresh = headerData.refresh %}
+{% set hardRefresh = headerData.hardRefresh %}
+{% set customClass = headerData.customClass %}
+{% set category = headerData.category %}
+{% set agent = headerData.agent %}
+
+	<div class="header {{ customClass }}">
+
+		{% if category %}
+			<dl>
+				<dd class="category">
+						{{ category }}
+				</dd>
+		</dl>
+		{% endif %}
+
+		{% if refresh %}
+			<div class="header__refresh" data-header-refresh>
+				Refresh
+			</div>
+		{% endif %}
+
+		{% if hardRefresh %}
+			<div class="header__refresh header__refresh--hard" data-header-refresh>
+				Refresh
+			</div>
+		{% endif %}
+
+		{% if advantageLogo %}
+			<div class="header__advantage"></div>
+		{% endif %}
+
+		{% if subtitle %}
+			<h6 
+				class="header__pretitle"
+			>{{ pretitle|safe }}</h6>
+		{% endif %}
+
+		<h2 
+			class="header__title {% if headingSize %}header__title--{{ headingSize }}{% endif %} {% if inversed %}header__title-inversed{% endif %}"
+			{% if id %}data-companywide-editable="{{ id }}"{% endif %}
+		>{{ title|safe }}</h2>
+
+		{% if subtitle %}
+			<h3 
+				class="header__subtitle {% if subtitleLight %}header__subtitle--light{% endif %} {% if headingSize %}header__subtitle--{{ headingSize }}{% endif %} {% if inversed %}header__subtitle-inversed{% endif %}"
+				{% if id %}data-companywide-editable="{{ id }}--subtitle"{% endif %}
+			>{{ subtitle|safe }}</h3>
+		{% endif %}
+
+		{% if person %}
+			<div class="header__profile">
+				<div class="header__profile--image" data-companywide-dynamic-image="{{ person|replace(' ', '-')|urlencode|replace('%', '') }}--image"></div>
+				<div class="header__profile-text">
+					<strong data-companywide-editable="{{ person|replace(' ', '-')|urlencode|replace('%', '') }}">{{ person }}</strong>
+					<div data-companywide-editable="{{ role|replace(' ', '-')|urlencode|replace('%', '') }}">{{ role }}</div>
+				</div>
+			</div>
+		{% endif %}
+
+		{% if dropdown %}
+			{% if dropdown == 2 %}
+				<div class="header__input">
+					<div class="header__input-dropdown" id="header-dropdown-1">
+						<h6 class="input-label">{{ dropdownData[0].title }}</h6>
+						<div class="header__input-dropdown--results">
+							{% for item in dropdownData %}
+								<div class="results__child {% if loop.index == 1 %}strong{% endif %}" value="{{ item.value }}">{{ item.title }}</div>
+							{% endfor %}
+						</div>
+					</div>
+					<div class="header__input-dropdown" id="header-dropdown-2">
+						<h6 class="input-label">{{ dropdownTwoData[0].title }}</h6>
+						<div class="header__input-dropdown--results">
+							{% for item in dropdownTwoData %}
+								<div class="results__child {% if loop.index == 1 %}strong{% endif %}" value="{{ item.value }}">{{ item.title }}</div>
+							{% endfor %}
+						</div>
+					</div>
+				</div>
+			{% elseif dropdown == 3 %}
+				<div class="header__input header__input--three">
+					<div class="header__input-dropdown" id="header-dropdown-1">
+						<h6 class="input-label">{{ dropdownData[0].title }}</h6>
+						<div class="header__input-dropdown--results">
+							{% for item in dropdownData %}
+								<div class="results__child {% if loop.index == 1 %}strong{% endif %}" value="{{ item.value }}">{{ item.title }}</div>
+							{% endfor %}
+						</div>
+					</div>
+					<div class="header__input-dropdown" id="header-dropdown-2">
+						<h6 class="input-label">{{ dropdownTwoData[0].title }}</h6>
+						<div class="header__input-dropdown--results">
+							{% for item in dropdownTwoData %}
+								<div class="results__child {% if loop.index == 1 %}strong{% endif %}" value="{{ item.value }}">{{ item.title }}</div>
+							{% endfor %}
+						</div>
+					</div>
+					<div class="header__input-dropdown" id="header-dropdown-3">
+						<h6 class="input-label">{{ dropdownThreeData[0].title }}</h6>
+						<div class="header__input-dropdown--results">
+							{% for item in dropdownThreeData %}
+								<div class="results__child {% if loop.index == 1 %}strong{% endif %}" value="{{ item.value }}">{{ item.title }}</div>
+							{% endfor %}
+						</div>
+					</div>
+				</div>
+			{% elseif dropdown == 4 %}
+				<div class="header__input header__input--four">
+					<div class="header__input-dropdown" id="header-dropdown-1">
+						<h6 class="input-label">{{ dropdownData[0].title }}</h6>
+						<div class="header__input-dropdown--results">
+							{% for item in dropdownData %}
+								<div class="results__child {% if loop.index == 1 %}strong{% endif %}" value="{{ item.value }}">{{ item.title }}</div>
+							{% endfor %}
+						</div>
+					</div>
+					<div class="header__input-dropdown" id="header-dropdown-2">
+						<h6 class="input-label">{{ dropdownTwoData[0].title }}</h6>
+						<div class="header__input-dropdown--results">
+							{% for item in dropdownTwoData %}
+								<div class="results__child {% if loop.index == 1 %}strong{% endif %}" value="{{ item.value }}">{{ item.title }}</div>
+							{% endfor %}
+						</div>
+					</div>
+					<div class="header__input-dropdown" id="header-dropdown-3">
+						<h6 class="input-label">{{ dropdownThreeData[0].title }}</h6>
+						<div class="header__input-dropdown--results">
+							{% for item in dropdownThreeData %}
+								<div class="results__child {% if loop.index == 1 %}strong{% endif %}" value="{{ item.value }}">{{ item.title }}</div>
+							{% endfor %}
+						</div>
+					</div>
+					<div class="header__input-dropdown" id="header-dropdown-4">
+						<h6 class="input-label">{{ dropdownFourData[0].title }}</h6>
+						<div class="header__input-dropdown--results">
+							{% for item in dropdownFourData %}
+								<div class="results__child {% if loop.index == 1 %}strong{% endif %}" value="{{ item.value }}">{{ item.title }}</div>
+							{% endfor %}
+						</div>
+					</div>
+				</div>
+			{% elseif dropdown == 5 %}
+				<div class="header__input header__input--five">
+					<div class="header__input-dropdown" id="header-dropdown-1">
+						<h6 class="input-label">{{ dropdownData[0].title }}</h6>
+						<div class="header__input-dropdown--results">
+							{% for item in dropdownData %}
+								<div class="results__child {% if loop.index == 1 %}strong{% endif %}" value="{{ item.value }}">{{ item.title }}</div>
+							{% endfor %}
+						</div>
+					</div>
+					<div class="header__input-dropdown" id="header-dropdown-2">
+						<h6 class="input-label">{{ dropdownTwoData[0].title }}</h6>
+						<div class="header__input-dropdown--results">
+							{% for item in dropdownTwoData %}
+								<div class="results__child {% if loop.index == 1 %}strong{% endif %}" value="{{ item.value }}">{{ item.title }}</div>
+							{% endfor %}
+						</div>
+					</div>
+					<div class="header__input-dropdown" id="header-dropdown-3">
+						<h6 class="input-label">{{ dropdownThreeData[0].title }}</h6>
+						<div class="header__input-dropdown--results">
+							{% for item in dropdownThreeData %}
+								<div class="results__child {% if loop.index == 1 %}strong{% endif %}" value="{{ item.value }}">{{ item.title }}</div>
+							{% endfor %}
+						</div>
+					</div>
+					<div class="header__input-dropdown" id="header-dropdown-4">
+						<h6 class="input-label">{{ dropdownFourData[0].title }}</h6>
+						<div class="header__input-dropdown--results">
+							{% for item in dropdownFourData %}
+								<div class="results__child {% if loop.index == 1 %}strong{% endif %}" value="{{ item.value }}">{{ item.title }}</div>
+							{% endfor %}
+						</div>
+					</div>
+					<div class="header__input-dropdown" id="header-dropdown-5">
+						<h6 class="input-label">{{ dropdownFiveData[0].title }}</h6>
+						<div class="header__input-dropdown--results">
+							{% for item in dropdownFiveData %}
+								<div class="results__child {% if loop.index == 1 %}strong{% endif %}" value="{{ item.value }}">{{ item.title }}</div>
+							{% endfor %}
+						</div>
+					</div>
+				</div>
+			{% else %}
+				<div class="header__input" id="header-dropdown">
+					<div class="header__input-dropdown">
+						<h6 class="input-label">{{ dropdownData[0].title }}</h6>
+						<div class="header__input-dropdown--results">
+							{% for item in dropdownData %}
+								<div class="results__child {% if loop.index == 1 %}strong{% endif %}" value="{{ item.value }}">{{ item.title }}</div>
+							{% endfor %}
+						</div>
+					</div>
+				</div>
+			{% endif %}
+		{% endif %}
+
+		{% if agent %}
+			<div class="header__agent">
+				
+			</div>
+		{% endif %}
+
+	</div>
+{% endmacro %}

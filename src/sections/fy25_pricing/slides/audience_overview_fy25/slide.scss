@@ -1,0 +1,288 @@
+$primary-bg-color: #055fb4;
+$secondary-bg-color: #ff5428;
+$third-bg-color: #3f3c42;
+$primary-text-color: #3e3b41;
+$secondary-text-color: #055fb4;
+
+#slideshow {
+  article#audience-overview-fy25 {
+    color: $primary-text-color;
+    .slide__header {
+      margin: 0px;
+      padding-top: 44px;
+      padding-left: 120px;
+      padding-right: 120px;
+      width: 100%;
+
+      &::before {
+        content: "";
+        position: fixed;
+        width: 1920px;
+        height: 20px;
+        left: 0;
+        top: 0;
+        background: $primary-bg-color;
+      }
+    }
+
+    .slide__breadcrumb {
+      position: fixed;
+      right: 120px;
+      top: 20px;
+      background: $primary-bg-color;
+      height: 44px;
+
+      display: flex;
+      align-items: center;
+
+      border-radius: 0px 0px 12px 12px;
+      padding-left: 17px;
+      padding-right: 24px;
+
+      &__icon {
+        margin-right: 16px;
+        background-image: url(img/breadcrumb-logo.svg);
+        background-size: 24.733px 25.326px;
+        width: 24.733px;
+        height: 25.326px;
+      }
+      &__category {
+        color: #fff;
+        font-family: "REAPangea";
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+      }
+    }
+
+    .section__title {
+      font-family: "REAPangea";
+      font-size: 50px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 55px; /* 110% */
+      margin: 30.5px 0 21px 0;
+    }
+
+    .section__options {
+      display: flex;
+      justify-content: space-between;
+
+      &__keys {
+        display: flex;
+        gap: 17px;
+
+        .container {
+          display: flex;
+          gap: 9.8px;
+
+          .color__box {
+            width: 17.02px;
+            height: 17.02px;
+            border-radius: 2.43px;
+
+            &--realcommercial {
+              background-color: $primary-bg-color;
+            }
+            &--nearest_competitor {
+              background-color: $secondary-bg-color;
+            }
+            &--shared_audience {
+              background-color: $third-bg-color;
+            }
+          }
+
+          span {
+            font-size: 15px;
+            line-height: 17.02px;
+          }
+        }
+      }
+
+      .filter__container {
+        display: flex;
+        gap: 21.32px;
+
+        .refresh__button {
+          cursor: pointer;
+          display: flex;
+          justify-content: space-evenly;
+          align-items: center;
+          background-color: white;
+          border: 1px solid #75787b;
+          border-radius: 8px;
+          width: 114px;
+          p {
+            font-size: 16px;
+            line-height: 40px;
+          }
+          span {
+            background-image: url("img/refresh.svg");
+            background-repeat: no-repeat;
+            width: 30px;
+            height: 30px;
+          }
+        }
+      }
+    }
+
+    .slide__body {
+      display: flex;
+      width: 1680px;
+      height: 718px;
+      margin: 18px auto;
+      box-shadow: 0px 4px 25px 0px #00000026;
+      border-radius: 10px;
+
+      .container {
+        position: relative;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        &__removable__icon {
+          cursor: pointer;
+          position: absolute;
+          background-image: url("img/remove.svg");
+          background-repeat: no-repeat;
+          width: 20px;
+          height: 20px;
+          top: 10px;
+          right: 10px;
+
+          &--disable {
+            display: none;
+          }
+        }
+
+        .container__title {
+          z-index: 1;
+          margin-top: 30px;
+          font-size: 22px;
+          font-weight: 600;
+          line-height: 25px;
+        }
+        .chart {
+          position: relative;
+          flex-basis: 60%;
+          display: flex;
+          justify-content: center;
+          width: 100%;
+          max-width: 400px;
+          gap: 20px;
+          padding: 25px 0;
+          .chart__item {
+            display: flex;
+            flex-direction: column-reverse;
+            width: 60px;
+            height: 100%;
+
+            span {
+              padding-top: 15px;
+              border-radius: 30px;
+              color: white;
+              font-size: 17px;
+              font-weight: 600;
+              text-align: center;
+            }
+
+            &--total span {
+              flex-basis: 100%;
+              background-color: $primary-bg-color;
+            }
+            &--competitor span {
+              flex-basis: 100%;
+              background-color: $secondary-bg-color;
+            }
+          }
+          .chart__circle__item {
+            position: absolute;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+
+            &--exclusive {
+              width: 263px;
+              height: 263px;
+              bottom: 0;
+              left: 70px;
+              background-color: $primary-bg-color;
+              span {
+                font-size: 75px;
+                font-weight: 600;
+                line-height: 75px;
+              }
+            }
+            &--shared {
+              width: 100px;
+              height: 100px;
+              bottom: 210px;
+              right: -5%;
+              background-color: $third-bg-color;
+              span {
+                font-size: 23px;
+                font-weight: 600;
+                line-height: 23px;
+              }
+              p {
+                font-size: 10px;
+                line-height: 10px;
+              }
+            }
+
+            span,
+            p {
+              color: white;
+            }
+          }
+        }
+        .container__title__sub {
+          font-size: 16px;
+        }
+        .container__description {
+          position: absolute;
+          top: calc(100% - 170px);
+          padding: 46px 14px 30px;
+          font-size: 25px;
+          font-weight: 500;
+          line-height: 35px;
+          text-align: center;
+          &--audience {
+            margin-top: 48px;
+          }
+          span {
+            font-size: 30px;
+            font-weight: 600;
+            color: $secondary-text-color;
+          }
+        }
+
+        &#unique-audience .chart__item--competitor span {
+          flex-basis: 70%;
+        }
+        &#visitor .chart__item--competitor span {
+          flex-basis: 80%;
+        }
+      }
+
+      .divider {
+        width: 0;
+        margin: 30px 0;
+        border: 1px solid #d9d9d9;
+      }
+    }
+
+    .slide__footer {
+      margin-top: 30px;
+      padding: 0 120px;
+      p {
+        font-size: 12px;
+        line-height: 12px;
+      }
+    }
+  }
+}

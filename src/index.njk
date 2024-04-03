@@ -1,0 +1,26 @@
+{% set options = {
+	id: "welcome_slide_title",
+	subslides: false,
+	article_classes: "new-title-slide",
+	content_classes: ""
+} %}
+{% extends "./njk/base-section-title.njk" %}
+{% import "./njk/_partials/section-new-title.njk" as section_title %}
+{% block content %}
+    <div class="s-intro-slide">
+        <div class="s-house-slide__container" data-background-container="violet">
+            <div class="s-house-slide__content o-transition__children o-transition__children--fade-up">
+                <h1 class="section-content__title" data-companywide-editable="welcome_slide_title_editable">Welcome</h1>
+                <h4 class="section-content__subtitle" data-currentDate="data-currentDate">Date</h4>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block js_rendered %}
+    var today = new Date(); 
+	var date = String(today.getDate()).padStart(2, '0'); 
+	var month = today.toLocaleString('default', { month: 'long' }); 
+	var year = today.getFullYear(); 
+	
+	$('[data-currentDate]', $pageContainer).text(`${date} ${month} ${year}`);
+{% endblock %}

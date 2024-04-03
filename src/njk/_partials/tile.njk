@@ -1,0 +1,18 @@
+{% macro data(tileData) %}
+
+	<div class="tile {% if tileData|length < 6 %}tile-extension{% endif %}">
+		{% for item in tileData %}
+			<div 
+				class="tile__child u-rounded-10 u-bg--rca-{% if item.backgroundColour %}{{ item.backgroundColour }}{% else %}blue{% endif %} {% if tileData|length > 5 %}tile__child--small{% endif %}{% if item.removable %} tile__child--removable{% endif %} tile__child--{{ loop.index }} o-transition--fade-up o-transition--fade" 
+				val="{{ loop.index }}"
+			>
+				<div class="title__child--svg-container">
+					<div class="tile__child--svg tile__child--svg-{{ item.icon }}"></div>
+				</div>
+				<h4>{{ item.title }}</h4>
+				<div class="tile__child--caption">{{ item.caption }}</div>
+			</div>
+		{% endfor %}
+	</div>
+
+{% endmacro %}

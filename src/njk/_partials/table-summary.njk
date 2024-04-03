@@ -1,0 +1,51 @@
+{% macro data(tableData) %}
+	<div class="table-summary">
+		<div class="table-summary__branding branding">
+			<img class="branding-logo" alt="" />
+			{% if tableData.refresh %}
+				<div class="table-summary__refresh" data-refresh></div>
+			{% endif %}
+		</div>
+		{% for item in tableData.data %}
+			{% if item.titles %}
+				<div class="table-summary__head u-bg--rca-spaceGrey">
+					{% for item in item.titles %}
+						<div class="table-summary__head--column {% if item.removable %}table-summary__head--column-removable{% endif %}" val="{{ loop.index }}">
+							<div class="table-summary__listings" {{item.data}}></div>
+							<h6>{{ item.title|safe }}</h6>
+						</div>
+					{% endfor %}
+				</div>
+			{% endif %}
+		{% endfor %}
+		<div class="table-summary__body">
+			{% for body in tableData.data %}
+				{% if body.column %}
+					<div class="table-summary__column" val="{{ loop.index }}">
+						{% if body.removable %}
+							<div class="table-summary__column-removable"></div>
+						{% endif %}
+						{% for item in body.column %}
+							{% if item.heading %}
+								<div class="table-summary__column-fix">
+									<div class="table-summary__column--{{ item.type }}"></div>
+									<h6>{{ item.heading|safe }}</h6>
+								</div>
+							{% else %}
+								<div 
+									class="table-summary__column--cell {% if body.removable %}table-summary__row-removable table-summary__row-removable--{{ loop.index }}{% endif %}" 
+									val="{{ loop.index }}"
+								>
+									<div class="table-summary__column--cell-align">
+										<h3 {{ item.data|safe }}>-</h3>
+										<div class="table-summary__column--cell-child">{{ item.caption|safe }}</div>
+									</div>
+								</div>
+							{% endif %}
+						{% endfor %}
+					</div>
+				{% endif %}
+			{% endfor %}
+		</div>
+	</div>
+{% endmacro %}

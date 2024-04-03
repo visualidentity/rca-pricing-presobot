@@ -1,0 +1,23 @@
+{% macro data(listingData) %}
+
+	<div class="listing-placement">
+		<ul class="u-rel u-rel--left-120 u-rel--top-60 listing">
+			{% for item in listingData.items %}
+				{% if 'CWE' in item %}
+					<li 
+						data-toolbar="style color superscript"
+						data-companywide-editable="{{ item }}{{ loop.index }}"
+					></li>
+				{% else %}
+					<li 
+						data-companywide-editable="{{ item|replace(' ', '-')|urlencode|replace('%', '')|replace('*', '')|replace('(', '')|replace(')', '')|replace('<sup>', '-')|replace('</sup>', '')|replace('.', '') }}"
+						data-toolbar="style color superscript"
+					>{{ item|safe }}</li>
+				{% endif %}
+			{% endfor %}
+		</ul>
+	</div>
+
+	<div class="listing__bg--image" data-companywide-dynamic-image="{{ listingData.id|replace(' ', '-')|urlencode|replace('%', '') }}--image"></div>
+
+{% endmacro %}

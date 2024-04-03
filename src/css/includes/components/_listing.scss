@@ -1,0 +1,47 @@
+.listing-placement {
+	position: relative;
+	height: 760px;
+}
+
+ul.listing {
+	list-style: none;
+	padding: 0;
+	max-width: 707px;
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+
+	li {
+		@include font-size(24);
+		padding-left: 55px;
+		margin-bottom: 30px;
+		position: relative;
+
+		&:before {
+			content: '';
+			@include icon(tick);
+			width: 35px;
+			height: 35px;
+			position: absolute;
+			left: 0;
+			top: -4px;
+		}
+	}
+
+	.sp-companywide-empty {
+		display: none;
+	}
+}
+
+.listing__bg--image {
+	width: 908px;
+	height: 710px;
+	position: absolute;
+	right: -1px;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+.edit-mode ul.listing .sp-companywide-empty {
+	display: block !important;
+}

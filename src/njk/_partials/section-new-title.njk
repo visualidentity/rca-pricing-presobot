@@ -1,0 +1,23 @@
+{% macro title(theme='red', copy='Section', subtitle='', classes='', cweKey=null, prepEditable=true) %}
+<div class="s-intro-slide">
+	<div class="s-house-slide__container {{ classes }}" data-background-container="{{theme}}">
+		<div class="s-house-slide__content o-transition__children--fade-up">
+			{% if prepEditable %}
+				<h1 class="section-content__title" {% if cweKey %}data-companywide-editable="{{cweKey}}_title"{% endif %} {% if prepEditable %}id="{{cweKey}}_title" data-editable{% endif %}>{{ copy | safe}}</h1>
+				{% if subtitle %}
+				<h4 class="section-content__subtitle o-transition__delay--200" {% if cweKey %}data-companywide-editable="{{cweKey}}_subtitle"{% endif %} {% if prepEditable %}id="{{cweKey}}_subtitle" data-editable{% endif %}>{{ subtitle | safe}}</h4>
+				{% endif %}
+			{% else %}
+				<div>
+					<h1 class="section-content__title" {% if cweKey %}data-companywide-editable="{{cweKey}}_title"{% endif %} {% if prepEditable %}id="{{cweKey}}_title" data-editable{% endif %}>{{ copy | safe}}</h1>
+				</div>
+				{% if subtitle %}
+					<div class="o-transition__delay--200">
+						<h4 class="section-content__subtitle" {% if cweKey %}data-companywide-editable="{{cweKey}}_subtitle"{% endif %} {% if prepEditable %}id="{{cweKey}}_subtitle" data-editable{% endif %}>{{ subtitle | safe}}</h4>
+					</div>
+				{% endif %}
+			{% endif %}
+		</div>
+	</div>
+</div>
+{% endmacro %}

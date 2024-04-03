@@ -1,0 +1,12 @@
+{% macro data(slideData) %}
+<div class="title-slide">
+	<div class="title-slide__title-half">
+		{% if slideData.editable %}
+			<h1 class="title-slide__copy" data-companywide-editable="{{ slideData.title|replace(' ', '-')|urlencode|replace('%', '') }}" id="{{ slideData.id|replace(' ', '-')|urlencode|replace('%', '') }}--id" data-editable>{{ slideData.title|safe }}</h1>
+		{% else %}
+			<h1 class="title-slide__copy" id="{{ slideData.id|replace(' ', '-')|urlencode|replace('%', '') }}">{{ slideData.title|safe }}</h1>
+		{% endif %}
+	</div>
+	<div class="title-slide__rca-logo"></div>
+</div>
+{% endmacro %}

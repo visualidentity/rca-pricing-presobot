@@ -1,0 +1,276 @@
+.input-container {
+	cursor: pointer;
+}
+
+.input--text  {
+	position: relative;
+	&:after {
+		content: '';
+		@include svg-background-div(8px, 8px, 20px, 'img/search-icon.svg');
+		top: 50%;
+		right: 10px;
+		@include transform(translateY(-50%));
+		width: 20px;
+		height: 20px;
+		position: absolute;
+		background-size: cover;
+		z-index: 2;
+	}
+
+	&.input--add {
+		padding-right: 88px;
+		border-top-right-radius: 0;
+		border-bottom-right-radius: 0;
+		&:after {
+			content: 'Add';
+			color: white;
+			font-size: 20px;
+			background-image: none;
+			right: 28px;
+			width: auto;
+		}
+
+		&:before {
+			width: 91px;
+			border-top-right-radius: 3px;
+			border-bottom-right-radius: 3px;
+		}
+	}
+
+	&:before {
+		content: ' ';
+		width: 56px;
+		height: 100%;
+		content: '';
+		position: absolute;
+		right: 0;
+		top: 0;
+		z-index: 1;
+		background-color: #697684;
+		border-top-right-radius: 6px;
+		border-bottom-right-radius: 6px;
+	}
+
+	& input {
+		appearance: none;
+		width: 254px;
+		height: 40px;
+		padding: 10px 15px;
+		border: solid 1px #C8C9C7;
+		font-size: 18px;
+		border-radius: 3px;
+	}
+
+	&.hide-icon {
+		&:after {
+			display: none;
+		}
+	}
+
+}
+
+.input--grey {
+	input {
+		background-color: #F0F1F2;
+	}
+}
+
+.input--dropdown {
+	position: relative;
+	.input-label {
+		width: 254px;
+		height: 40px;
+		padding: 6px 15px;
+		border: solid 1px #C8C9C7;
+		font-size: 18px;
+		border-radius: 3px;
+		text-align: left;
+		overflow: hidden;
+	}
+
+	ul {
+		position: absolute;
+		top: 40px;
+		left: 0;
+		width: 200px;
+		text-align: left;
+		background: #ffffff;
+		z-index: 1;
+		padding: 3px;
+		border: solid 1px #C8C9C7;
+		border-top: none;
+
+	}
+
+	li {
+		padding: 4px;
+		&:hover {
+			background: #C8C9C7;
+		}
+	}
+
+}
+
+.input--disabled:after {
+	display: none;
+}
+
+.dropdown ul{
+	display: none;
+}
+
+.dropdown--open .dropdown ul {
+	display: block;
+}
+
+.dropdown-icon {
+	position: absolute;
+	right: 14px;
+	top: 12px;
+	@include svg-background-div(8px, 8px, 20px, 'img/chevron-down.svg');
+  	// pointer-events: none;
+}
+
+.table-dropdown {
+	text-align: right;
+	.input--dropdown {
+		display: inline-block;
+		margin-left: 50px;
+		width: 330px;
+	}
+
+	.input-label {
+		width: 100%;
+	}
+}
+
+.input_text-autocomplete {
+	position: absolute;
+	width: 100%;
+	left: 0;
+	top: 100%;
+	background: #ffffff;
+	text-align: left;
+	display: none;
+
+	&.is-visible {
+		display: block;
+	}
+
+	li {
+		margin-top: 11px;
+		padding: 10px;
+		&:hover {
+			background: #C8C9C7;
+		}
+	}
+	max-height: 343px;
+	overflow: auto;
+}
+
+.input--tabs {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	@include transform(translate(-50%, -50%));
+	font-size: 0;
+}
+.control-options {
+	.input--tabs {
+		position: static;
+		transform: none;
+		color: #828D99;
+	}
+	.input__tab {
+		line-height: .8;
+		background: white;
+		border-bottom: none;
+		width: 161px;
+		height: 34px;
+		display: inline-block;
+		text-align: center;
+
+		&.active {
+			color: white;
+			background: red;
+		}
+
+		&:first-child {
+			border-top-left-radius: 10px;
+			border-bottom-left-radius: 10px;
+		}
+		&:last-child {
+			border-top-right-radius: 10px;
+			border-bottom-right-radius: 10px;
+		}
+	}
+
+	.input--large {
+		height: 50px;
+
+		input {
+			height: 50px;
+			font-size: 20px;
+		}
+
+		.input-label {
+			height: 50px;
+			padding: 13px 15px;
+			font-size: 20px;
+		}
+
+		.dropdown-icon {
+			top: 15px;
+		}
+
+		&.input--dropdown {
+			font-size: 20px;
+			ul {
+				padding: 0;
+				margin: 10px 0 0;
+				width: 100%;
+				li {
+					padding: 10px 15px;
+				}
+			}
+		}
+	}
+}
+
+.input__tab {
+	cursor: pointer;
+	padding: 8px 16px;
+	font-size: 22px;
+	color: #C8C9C7;
+	border-bottom: solid 2px #C8C9C7;
+	&.active {
+		cursor: initial;
+		color: #ffffff;
+		border-color: #ffffff;
+	}
+
+	&--white-bg.active {
+		color: #333f48;
+		border-color: red;
+	}
+}
+
+
+
+.light-background {
+	.input__tab {
+		color: #697684;
+		border-bottom: solid 2px #697684;
+		&.active {
+			color: #333f48;
+			border-color: #333f48;
+		}
+
+	}
+}
+
+// body.client {
+// 	.input-container {
+// 		display: none;
+// 	}
+// }

@@ -1,0 +1,74 @@
+version: 1
+name: 'RCA Pricing Presobot'
+src: ./src
+dist: ./dist
+key: commercial-pricing-presobot
+maintainer: daniel.phan@vi.com.au
+impostor: true
+servers:
+  - title: Production
+    api: 'https://rea-group.livepreso.com'
+  - title: Staging
+    api: 'https://staging-rea-group.livepreso.com'
+screenshotpreferences:
+  backend: chrome
+  vector: true
+common:
+  js:
+    - js/deck.js
+  css:
+    - css/core.css
+feeds:
+  riosummaryNewListings:
+    source: '/api-proxy/?url=https://salespreso.api-realestate-com-au.vi.com.au/{{ feed_host }}/rca/roi/{{ agent.code }}?listingType=New%20listings'
+    preprocessors:
+      - AuthenticateWithSalesPresoApi
+      - UseServerHostname
+  riosummaryUpgraded:
+    source: '/api-proxy/?url=https://salespreso.api-realestate-com-au.vi.com.au/{{ feed_host }}/rca/roi/{{ agent.code }}?listingType=Upgraded%20listings'
+    preprocessors:
+      - AuthenticateWithSalesPresoApi
+      - UseServerHostname
+  audienceOverviewFy25:
+    source: '/api-proxy/?url=https://salespreso.api-realestate-com-au.vi.com.au/{{ feed_host }}/rca/audience-competitor'
+    preprocessors:
+      - AuthenticateWithSalesPresoApi
+      - UseServerHostname
+hooks: js/hooks/hooks.js
+dimensions:
+  width: 1920
+  height: 1080
+sections:
+ 
+  - key: fy25_pricing
+    title: 'FY25 Pricing'
+    tags: [editable]
+    maxAdjunctSlides: -1
+    slides:
+      - { key: the_best_return_for_your_investment_cover, title: 'The Best ROI'}
+      - { key: audience_overview_fy25, title: 'Audience Overview' }
+      - { key: best_roi_overview, title: 'Best ROI Overview' }
+      - { key: fy25_roi_summary, title: 'Your Agency’s ROI summary' }
+      - { key: elite_plus_all_contract_fy25, title: 'Subscriptions - Elite Plus All', tags: [subslide_container] }
+      - { key: enhanced_all_contract_fy25, title: 'Subscriptions - Enhanced All' }
+      - { key: subscription_options_fy25, title: 'Subscriptions - Options', tags: [subslide_container] }
+  - key: thank_you
+    title: 'Thank You'
+content_editors:
+  text:
+    colors:
+      - color: '#323F49'
+        title: 'Charcoal'
+      - color: '#055FB4'
+        title: 'Blue'
+        formats:
+          - block: 'p'
+            title: 'Normal'
+          - block: 'h6'
+            title: 'Small'
+          - block: 'h2'
+            title: 'Large heading'
+          - block: 'h3'
+            title: 'Medium heading'
+          - block: 'h4'
+            title: 'Small heading'

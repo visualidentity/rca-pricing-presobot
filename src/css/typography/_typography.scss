@@ -1,0 +1,69 @@
+article,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+input,
+strong,
+ol,
+ul,
+li,
+th,
+td,
+text {
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-decoration: none;
+  margin: 0px;
+  @include font-main();
+  @include font-weight(normal);
+}
+
+article {
+  // color: $text-primary;
+}
+
+// Font sizes
+//-----------------------//
+//
+h1 {
+  @include font-size(70);
+  @include font-weight(bold);
+}
+
+h2 {
+  @include font-size(72);
+  @include font-weight(bold);
+}
+
+h3 {
+  @include font-size(36);
+}
+
+h4 {
+  @include font-size(34);
+}
+
+h6 {
+  @include font-size(20);
+}
+
+h5,
+div,
+p,
+li {
+  @include font-size(18);
+  @include font-weight(light);
+}
+
+strong {
+  @include font-weight(bold);
+}
+
+.disclaimer {
+  @include font-size(14);
+}

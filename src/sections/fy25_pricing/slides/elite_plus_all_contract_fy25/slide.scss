@@ -1,0 +1,456 @@
+@import "../../../../css/slides_common";
+
+#slideshow {
+  article#elite_plus_all_contract_fy25 {
+    background-color: white;
+    position: relative;
+    &:after {
+      background-position: right;
+      background-size: 1476px 1098px;
+      width: 1476px;
+      height: 1098px;
+      content: "";
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      z-index: -1;
+      transition: all 0.25s ease-in;
+    }
+
+    > .content {
+      overflow: visible;
+      > .content-body {
+        width: 1920px;
+        height: 1080px;
+        position: relative;
+        margin: 0 0 0 120px;
+        > .subslide-container {
+          width: 100%;
+          position: relative;
+          left: auto;
+          top: auto;
+          transform: none;
+          z-index: 1;
+          > .subslide {
+            opacity: 0;
+            visibility: hidden;
+            top: 0 !important;
+            z-index: -1;
+            transition: all 0.4s ease-in-out;
+            padding-top: 95px;
+            &.active {
+              opacity: 1;
+              visibility: visible;
+              top: 0;
+              z-index: 1;
+              transition-delay: 0.4s;
+            }
+            &::after {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+
+    &.subslide-1,
+    &.subslide-2,
+    &.subslide-3,
+    &.subslide-4 {
+      .content-body {
+        > .subslide-container {
+          > .page01.subslide {
+            opacity: 1;
+            visibility: visible;
+            top: 0;
+            z-index: 1;
+            transition-delay: 0.4s;
+          }
+        }
+      }
+    }
+
+    &.subslide-2 {
+      .disclaimer {
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+
+    header {
+      width: 100%;
+      height: auto;
+      margin: 0;
+      padding-left: 120px;
+      padding-right: 120px;
+      padding-top: 95px;
+      padding-bottom: 0px;
+      transform: none;
+      h1 {
+        font-size: 55px;
+        font-weight: 600;
+        line-height: 60px;
+        text-align: center;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        color: #3e3b41;
+      }
+      &:before {
+        content: "";
+        width: 100%;
+        height: 20px;
+        background-color: #66408d;
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: 1;
+      }
+      dl {
+        position: absolute;
+        top: 0;
+        right: 0;
+        margin: 0;
+        dd {
+          position: absolute;
+          margin-left: 0;
+          &.title {
+            width: 231px;
+            height: 64px;
+            background-image: url("img/background-dd-title.png");
+            background-repeat: no-repeat;
+            background-position: bottom center;
+            background-color: #75787b;
+            border-radius: 0px 0px 12px 12px;
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 20px;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: #ffffff;
+            padding-left: 25px;
+            padding-top: 20px;
+            right: 308px;
+          }
+          &.category {
+            width: 225px;
+            height: 64px;
+            background: #66408d;
+            border-radius: 0px 0px 12px 12px;
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 20px;
+            display: flex;
+            align-items: center;
+            color: #ffffff;
+            right: 120px;
+            padding: 20px 9px 0 57px;
+            background-image: url("img/pick-house.svg");
+            background-size: 27px 28px;
+            background-repeat: no-repeat;
+            background-position: 17px 27px;
+          }
+        }
+      }
+    }
+
+    .hybrid-tab {
+      left: 0;
+      top: 0;
+      z-index: 999;
+      width: 100%;
+      background: none;
+      border-bottom: 1px solid #e1dfe2;
+      border-radius: 0;
+      &::after {
+        position: absolute;
+        width: unset;
+        height: unset;
+      }
+      .hybrid-tab-item {
+        font-size: 18px;
+        line-height: 32px;
+        height: 40px;
+        padding: 8px 0;
+        color: #d3d3d3;
+        margin-right: 55px;
+        cursor: pointer;
+        &:last-child {
+          margin-right: 0;
+        }
+        &.active {
+          color: colour(rca-blue);
+          font-weight: 600;
+          border-bottom: 4px solid colour(rca-blue);
+        }
+      }
+    }
+
+    .slide-content {
+      margin-top: 68px;
+    }
+
+    .slide-header-border__content {
+      height: 168px;
+      margin-bottom: 22px;
+    }
+
+    .logo {
+      width: 355px;
+      height: 57px;
+      position: absolute;
+      right: 110px;
+      top: -14px;
+      transition: all 0.4s ease-in-out;
+      background-image: url("./img/rea-logo.png");
+      background-size: 355px 57px;
+      background-repeat: no-repeat;
+    }
+
+    .slide-header-border__h1 {
+      font-family: $pangea;
+      font-weight: 600;
+      font-size: 50px;
+      line-height: 55px;
+      min-width: 100%;
+      color: #3e3b41;
+    }
+
+    ul {
+      @include listing-tick-circle("img/tick-purple.svg");
+      li {
+        font-size: 24px;
+        line-height: 28px;
+        padding-left: 43px;
+        margin-bottom: 15px;
+        font-family: $pangea;
+        &:last-child {
+          margin-bottom: 0;
+        }
+        &::before {
+          top: 0;
+          width: 20px;
+          height: 20px;
+          background-size: 20px 20px;
+        }
+      }
+    }
+
+    .accordion-icon-groups {
+      width: 805px;
+      color: black;
+      margin-left: 2px;
+      margin-top: 8px;
+      .accordion-icon--wrapper {
+        .accordion-title {
+          font-weight: 600;
+          font-size: 22px;
+          line-height: 26px;
+          color: #3e3b41;
+          padding-left: 85px;
+          min-height: 75px;
+          height: 75px;
+          &:after {
+            right: 0;
+          }
+          &.accordion-title {
+            &-layers--purple {
+              &::before {
+                width: 30.01px;
+                height: 30.01px;
+                left: 27px;
+              }
+            }
+            &-listing--purple {
+              &::before {
+                width: 30.01px;
+                height: 30.01px;
+                left: 27px;
+              }
+            }
+            &-person--purple {
+              &::before {
+                background-image: url("img/people.svg");
+                width: 30px;
+                height: 30px;
+                left: 27px;
+              }
+            }
+          }
+        }
+        .accordion-content {
+          margin-top: 0;
+          font-size: 20px;
+          line-height: 24px;
+          padding-left: 85px;
+          padding-top: 9px;
+          ul {
+            li {
+              font-family: $pangea;
+              font-weight: 400;
+              font-size: 17px;
+              line-height: 20px;
+              color: #3e3b41;
+              padding-left: 41px;
+              margin-bottom: 15px;
+              &:last-child {
+                margin-bottom: 0;
+              }
+              &::before {
+                top: 0;
+                width: 20px;
+                height: 20px;
+                background-size: 20px 20px;
+              }
+              sup {
+                font-size: 11px;
+                top: -0.75em;
+              }
+            }
+          }
+        }
+      }
+      .subslide {
+        width: auto;
+        height: auto;
+        position: relative;
+        padding-top: 0;
+        top: 0px !important;
+        &::after {
+          display: none;
+        }
+        &:first-child {
+          .accordion-content {
+            padding-bottom: 14px;
+          }
+        }
+      }
+    }
+
+    .column-image {
+      position: static;
+    }
+
+    footer {
+      position: fixed;
+      bottom: 0;
+      height: 89px;
+      left: 0;
+      width: 100%;
+      z-index: 2;
+      .disclaimer {
+        position: absolute;
+        height: 87px;
+        width: 986px;
+        top: 0;
+        left: 121px;
+        font-size: 13px;
+        line-height: 15px;
+        opacity: 0;
+        visibility: hidden;
+        * {
+          font-size: 13px;
+          line-height: 15px;
+        }
+      }
+    }
+
+    .o-footer {
+      .disclaimer {
+        color: #3e3b41;
+        * {
+          color: #3e3b41;
+        }
+        span {
+          font-family: $pangea-text;
+          font-weight: 400;
+          font-size: 13px;
+          line-height: 15px;
+          &:first-child {
+            display: inline-block;
+            text-decoration: underline;
+          }
+          &:last-child {
+            display: none;
+          }
+        }
+      }
+
+      .disclaimer {
+        span {
+          &:first-child {
+            display: none;
+          }
+          &:last-child {
+            display: inline-block;
+          }
+        }
+      }
+
+      .disclaimer-target {
+        color: #3e3b41;
+        font-weight: 400;
+        font-size: 13px;
+        line-height: 15px;
+        text-decoration: underline;
+        cursor: pointer;
+      }
+    }
+
+    .slide-navigation {
+      position: fixed;
+      bottom: 140px;
+      right: 452px;
+      z-index: 99;
+      &__button {
+        display: inline-block;
+        width: 54px;
+        height: 54px;
+        background-size: cover;
+        cursor: pointer;
+        &--prev {
+          background-image: url(img/prev.svg);
+          margin-right: 26px;
+        }
+        &--next {
+          background-image: url(img/next.svg);
+        }
+      }
+    }    
+
+    .elite-plus-all-contract-image {
+      background-image: url(img/background-main.png);
+      width: 865px;
+      height: 586px;
+      top: 285px;
+      right: 120px;
+      &.swap-image {
+        background-image: url("img/background-subslide.png");
+        background-size: cover;
+        position: absolute;
+        width: 746.71px;
+        height: 571.87px;
+        top: 267px;
+        right: 240px;
+      }
+    }    
+
+    
+  }
+}
+
+.screenshot {
+  article#elite_plus_all_contract_fy25 {
+    .disclaimer {
+      text-decoration: unset !important;
+      span {
+        &:first-child {
+          display: none !important;
+        }
+        &:last-child {
+          display: block !important;
+        }
+      }
+    }
+  }
+}

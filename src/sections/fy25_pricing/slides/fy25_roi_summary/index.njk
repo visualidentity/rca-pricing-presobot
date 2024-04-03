@@ -1,0 +1,199 @@
+{% import "./njk/_partials/header.njk" as header %}
+{% import "./njk/_partials/table-summary.njk" as table_summary %}
+{% import "./njk/_partials/footer.njk" as footer %}
+
+
+{% set fieldOne = [
+  {title: 'New listings', value: 'New listings'},
+	{title: 'Upgraded and re-upgraded listings', value: 'Upgraded and re-upgraded listings'}
+] %}
+
+{% set fieldTwo = [
+  {title: 'All channels', value: 'All Channels'},
+	{title: 'Sale only', value: 'Sale only'},
+	{title: 'Lease only', value: 'Lease only'}
+] %}
+
+{% set fieldThree = [
+	{title: 'All asset classes', value: 'All asset classes'},
+	{title: 'Hotel/Leisure', value: 'Hotel/Leisure'},
+	{title: 'Industrial/Warehouse', value: 'Industrial/Warehouse'},
+	{title: 'Land/Development', value: 'Land/Development'},
+	{title: 'Medical/Consulting', value: 'Medical/Consulting'},
+	{title: 'Offices', value: 'Offices'},
+	{title: 'Retail', value: 'Retail'},
+	{title: 'Showrooms/Bulky Goods', value: 'Showrooms/Bulky Goods'},
+	{title: 'Other', value: 'Other'}
+] %}
+
+{% set headerData = {
+	id: "fy25_roi_summary",
+	title: "Your Agency’s ROI summary",
+	dropdownFields: 3,
+	dropdownData: fieldOne,
+	dropdownTwoData: fieldTwo,
+	dropdownThreeData: fieldThree,
+	refresh: false,
+	customClass: 'u-margin--bottom-none purple-border',
+	category: "Property Advertising"
+} %}
+
+{% set tableData = {
+	refresh: true,
+	data: [
+		{
+			titles: [
+				{
+					data: 'data-total-new-listings',
+					title: 'Total new listings*'
+				},
+				{
+					data: 'data-yoy-change',
+					title: 'YOY % change',
+					removable: 'true'
+				},
+				{
+					title: ' '
+				},
+				{
+					title: ' '
+				}
+			]
+		},
+		{
+			column: [
+				{
+					heading: 'Views<sup>^</sup>',
+					type: 'views'
+				},
+				{
+					data: 'data-total-views',
+					caption: 'Views<sup>^</sup>'
+				},
+				{
+					data: 'data-average-views',
+					caption: 'Average views per listing'
+				},
+				{
+					data: 'data-yoy-total-views',
+					caption: 'YOY % change of total views'
+				},
+				{
+					data: 'data-yoy-average-views',
+					caption: 'YOY % change of average views'
+				},
+				{
+					data: 'data-state-views',
+					caption: 'Average views (State)'
+				}
+			],
+			removable: true
+		},
+		{
+			column: [
+				{
+					heading: 'Phone Reveals',
+					type: 'phone'
+				},
+				{
+					data: 'data-phone-reveals',
+					caption: 'Phone reveals'
+				},
+				{
+					data: 'data-average-phone-reveals',
+					caption: 'Average phone reveals per listing'
+				},
+				{
+					data: 'data-yoy-total-phone-reveals',
+					caption: 'YOY % change of total phone reveals'
+				},
+				{
+					data: 'data-yoy-average-phone-reveals',
+					caption: 'YOY % change of average phone reveals'
+				},
+				{
+					data: 'data-state-phone',
+					caption: 'Average phone reveals (State)'
+				}
+			],
+			removable: true
+		},
+		{
+			column: [
+				{
+					heading: 'Email Enquiries',
+					type: 'email'
+				},
+				{
+					data: 'data-email-enquiries',
+					caption: 'Email enquiries'
+				},
+				{
+					data: 'data-average-email-enquiries',
+					caption: 'Average email enquiries per listing'
+				},
+				{
+					data: 'data-yoy-total-email-enquiries',
+					caption: 'YOY % change of total email enquiries'
+				},
+				{
+					data: 'data-yoy-average-email-enquiries',
+					caption: 'YOY % change of average email enquiries'
+				},
+				{
+					data: 'data-state-email',
+					caption: 'Average email enquiries (State)'
+				}
+			],
+			removable: true
+		},
+		{
+			column: [
+				{
+					heading: 'Total Enquiries',
+					type: 'total'
+				},
+				{
+					data: 'data-total-enquiries',
+					caption: 'Total enquiries'
+				},
+				{
+					data: 'data-average-enquiries-listing',
+					caption: 'Average enquiries per listing'
+				},
+				{
+					data: 'data-yoy-total-enquiries',
+					caption: 'YOY % change of total enquiries'
+				},
+				{
+					data: 'data-yoy-average-enquiries',
+					caption: 'YOY % change of average enquiries'
+				},
+				{
+					data: 'data-state-total',
+					caption: 'Average total enquiries (State)'
+				}
+			],
+			removable: true
+		}
+	]
+} %}
+
+{% set footerData = {
+	id: 'fy25_roi_summary',
+  newLogo: true,
+  disclaimer: ['RCA internal Data, 1 January 2023 - 31 December 2023. ROI results are for new listings in the period of 1 January 2023 - 31 December 2023. For sale and lease listings are included as sale.<br /><sup>^</sup>Total views to your property details page'],
+  editable: true
+} %}
+
+{% block content %}
+	<article id="fy25_roi_summary">
+		{{ header.data(headerData) }}
+		{{ table_summary.data(tableData) }}
+		{{ footer.data(footerData) }}
+	</article>
+{% endblock %}
+
+<script type="text/javascript">
+  {% include './sections/fy25_pricing/slides/fy25_roi_summary/slide.js' %}
+</script>

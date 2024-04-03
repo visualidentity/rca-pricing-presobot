@@ -1,0 +1,19 @@
+{% macro data(snapshotData) %}
+
+	<div class="snapshot-visualisation">
+		{% for item in snapshotData %}
+			<div class="snapshot-visualisation__tier snapshot-visualisation__tier-{{ loop.index }}">
+				<div class="snapshot-visualisation__title snapshot-visualisation__{{ item.type }}">{{ item.title|safe }}</div>
+				<div class="snapshot-visualisation__bar snapshot-visualisation__bar--blue" data-visits-blue-bar-{{ loop.index }}>
+					<div class="snapshot-visualisation__bar--text o-transition--fade-up">{{ item.text|safe }}</div>
+					<div class="snapshot-visualisation__bar--rca o-transition--fade-up">{{ item.rcaNumber|safe }}</div>
+					<div class="snapshot-visualisation__bar--figure o-transition--fade-up">{{ item.rcaFigure|safe }}</div>
+				</div>
+				<div class="snapshot-visualisation__bar snapshot-visualisation__bar--orange o-transition--fade-up" data-visits-orange-bar-{{ loop.index }}>
+					<div class="snapshot-visualisation__bar--compet o-transition--fade-up">{{ item.competitorNumber|safe }}</div>
+				</div>
+			</div>
+		{% endfor %}
+	</div>
+
+{% endmacro %}

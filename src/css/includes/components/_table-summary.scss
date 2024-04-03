@@ -1,0 +1,201 @@
+.table-summary {
+  width: 1678px;
+  margin: 0 auto;
+  margin-top: 42px;
+}
+
+.table-summary__branding {
+  position: relative;
+  width: 100%;
+  height: 65px;
+
+  img {
+    width: 191px;
+    height: 65px;
+    object-fit: contain;
+    position: absolute;
+    left: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+
+.table-summary__refresh {
+  width: 30px;
+  height: 26px;
+  background-image: url("./img/png/refresh.png");
+  background-size: contain;
+  position: absolute;
+  right: 34px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: none;
+  cursor: pointer;
+
+  .preview & {
+    display: block;
+  }
+}
+
+.table-summary__head {
+  position: relative;
+  height: 112px;
+  color: $text-inverse;
+  display: flex;
+  align-items: center;
+
+  &:before {
+    content: "";
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    left: 51px;
+    top: -15px;
+    background: white;
+    transform: rotate(45deg);
+  }
+
+  &--column {
+    width: 25%;
+    padding: 0 30px;
+    position: relative;
+  }
+
+  h6 {
+    @include font-size(15);
+    @include font-weight(bold);
+  }
+}
+
+.table-summary__listings,
+.table-summary__percentile {
+  @include font-size(45);
+  @include font-weight(bold);
+}
+
+.table-summary__body {
+  background: $grey;
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+
+  .table-summary__column:last-child {
+    border: 0;
+  }
+}
+
+.table-summary__column {
+  // width: 25%;
+  display: table-cell;
+  padding: 0px 30px;
+  padding-top: 47px;
+  // display: inline-block;
+  position: relative;
+  border-right: 1px solid #d8d8d8;
+
+  h6 {
+    color: $blue;
+    text-transform: uppercase;
+    display: inline;
+    vertical-align: top;
+    line-height: 1.7;
+    @include font-weight(bolder);
+  }
+
+  &--views {
+    width: 32px;
+    height: 32px;
+    display: inline-block;
+    margin-right: 12px;
+    @include icon(eye);
+  }
+  &--phone {
+    width: 22px;
+    height: 32px;
+    display: inline-block;
+    margin-right: 12px;
+    @include icon(phone);
+  }
+  &--email {
+    width: 32px;
+    height: 32px;
+    display: inline-block;
+    margin-right: 12px;
+    @include icon(email);
+  }
+  &--total {
+    width: 32px;
+    height: 32px;
+    display: inline-block;
+    margin-right: 12px;
+    @include icon(total);
+  }
+}
+
+.table-summary__column-fix {
+  height: 33px;
+  display: inline-block;
+}
+
+.table-summary__column--cell {
+  height: 126px;
+  display: table;
+  position: relative;
+
+  h3 {
+    @include font-weight(bold);
+  }
+
+  &-align {
+    display: table-cell;
+    vertical-align: middle;
+  }
+}
+
+.table-summary__column--cell-child {
+  color: $lightGrey;
+  @include font-size(16);
+}
+
+.preview {
+  // .table-summary__head--column-removable:before {
+  // 	content: '';
+  // 	background: url('./img/png/minus.png');
+  // 	background-size: contain;
+  // 	width: 34px;
+  // 	height: 34px;
+  // 	position: absolute;
+  // 	left: 50%;
+  // 	top: -17px;
+  // 	transform: translateX(-50%);
+  // }
+
+  .table-summary__column {
+    position: relative;
+    @for $i from 2 through 6 {
+      .table-summary__row-removable--#{$i}:before {
+        content: "";
+        background: url("./img/remove_column--grey.svg");
+        background-size: contain;
+        width: 21px;
+        height: 21px;
+        position: absolute;
+        right: 14px;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+    }
+  }
+
+  .table-summary__column-removable {
+    content: "";
+    background: url("./img/remove_column--white.svg");
+    background-size: contain;
+    width: 21px;
+    height: 21px;
+    position: absolute;
+    right: 14px;
+    top: 22px;
+    cursor: pointer;
+  }
+}

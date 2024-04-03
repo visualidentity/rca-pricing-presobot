@@ -1,0 +1,156 @@
+.step-events-container {
+  width: 1680px;
+  margin: 0 auto;
+}
+
+.step-events-head {
+  display: flex;
+
+  div {
+    color: white;
+    font-size: 21px;
+    font-weight: 700;
+    padding: 20px 30px;
+  }
+
+  div:first-child {
+    width: 20%;
+    background-color: #055fb4;
+  }
+
+  div:nth-child(2) {
+    width: 68%;
+    background-color: #2e2c30;
+  }
+
+  div:nth-child(3) {
+    width: 12%;
+    background-color: #716e75;
+  }
+}
+
+.step-event {
+  position: relative;
+  display: flex;
+
+  &.hide {
+    display: none;
+  }
+
+  &:after {
+    content: "";
+    width: 32.63px;
+    height: 32.63px;
+    background-image: url("img/icons/calendar.svg");
+    background-size: contain;
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    z-index: 1;
+  }
+
+  > div {
+    position: relative;
+    min-height: 94px;
+    font-size: 21px;
+    line-height: 27px;
+    padding: 20px 30px;
+    border-radius: 0;
+    border: 1px solid #d0d0d0;
+  }
+
+  > div:first-child {
+    width: 20%;
+    font-weight: 700;
+  }
+
+  > div:nth-child(2) {
+    width: 68%;
+  }
+
+  > div:nth-child(3) {
+    width: 12%;
+  }
+}
+
+.step-events-container .add-step {
+  width: 12%;
+  color: white;
+  font-size: 16px;
+  padding: 13px 30px;
+  border-radius: 3px;
+  background-color: #055fb4;
+  text-align: center;
+  float: right;
+  cursor: pointer;
+  position: relative;
+  &:after {
+    width: 20px;
+    height: 20px;
+    content: "";
+    display: block;
+    position: absolute;
+    top: 15px;
+    right: 38px;
+    background-image: url("img/icons/plus.svg");
+  }
+  .client &,
+  .screenshot & {
+    display: none;
+  }
+}
+
+.step-events--navigation {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  bottom: -110px;
+  right: 0;
+  transition: all 0.4s ease-in-out;
+  z-index: 2;
+  opacity: 0;
+
+  .inactive {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+
+  &.active {
+    opacity: 1 !important;
+  }
+
+  > div {
+    transition: all 0.4s ease-in-out;
+    cursor: pointer;
+  }
+
+  .client &,
+  .screenshot & {
+    display: none;
+  }
+
+  .prev {
+    width: 56px;
+    height: 56px;
+    background-image: url("img/prev.svg");
+    background-size: contain;
+    transform: rotate(90deg);
+  }
+
+  .next {
+    margin-left: 1px;
+    width: 56px;
+    height: 56px;
+    background-image: url("img/next.svg");
+    background-size: contain;
+    transform: rotate(90deg);
+  }
+
+  .return {
+    margin-left: 8.5px;
+    width: 42px;
+    height: 36px;
+    background-image: url("img/return.svg");
+    background-size: contain;
+  }
+}

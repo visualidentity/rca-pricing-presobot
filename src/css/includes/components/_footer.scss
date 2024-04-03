@@ -1,0 +1,59 @@
+.footer {
+  width: 1920px;
+  height: 130px;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+}
+
+.footer__disclaimer {
+  max-width: 1400px;
+  position: absolute;
+  left: 120px;
+  top: 50%;
+  transform: translateY(-50%);
+
+  &-item {
+    @include font-size(12);
+  }
+}
+
+.footer_rca-logo {
+  background: url("./img/RCA-Logo-small.png");
+  background-size: contain;
+  width: 169px;
+  height: 35px;
+  position: absolute;
+  right: 120px;
+  top: 50%;
+  transform: translateY(-50%);
+
+  &-inverted {
+    background: url("./img/RCA-Logo-inverted-small.png");
+    background-size: contain;
+  }
+  &-new {
+    width: 355px;
+    height: 57px;
+    background: url("./img/RCA-Logo-new.png");
+    background-size: 100% auto;
+  }
+  &-new-inverted {
+    width: 355px;
+    height: 57px;
+    background: url("./img/RCA-Logo-new-inverted.png");
+    background-size: 100% auto;
+  }
+}
+
+.footer_ignite-logo:before {
+  content: "";
+  background: url("./img/ignite-logo.png");
+  background-size: contain;
+  width: 181.435px;
+  height: 57px;
+  position: absolute;
+  right: 354px;
+  top: 50%;
+  transform: translateY(-50%);
+}

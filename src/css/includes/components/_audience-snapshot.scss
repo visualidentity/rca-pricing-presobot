@@ -1,0 +1,141 @@
+.snapshot-visualisation {
+	margin-top: 60px;
+	margin-left: 120px;
+	margin-right: 120px;
+	max-width: 1056px;
+}
+
+.snapshot-visualisation__tier  {
+	margin-bottom: 48px;
+}
+
+.snapshot-visualisation__title{
+	font-size: 24px;
+	font-weight: 700;
+	margin-bottom: 14px;
+
+	&:before {
+		content: '';
+		display: inline-table;
+		vertical-align: middle;
+		margin-right: 10px;
+	}
+}
+
+.snapshot-visualisation__visits {
+	&:before {
+		content: '';
+		width: 32px;
+		height: 22px;
+		@include icon(visits);
+	}
+}
+
+.snapshot-visualisation__time {
+	&:before {
+		content: '';
+		width: 32px;
+		height: 32px;
+		@include icon(time);
+	}
+}
+
+.snapshot-visualisation__app {
+	&:before {
+		content: '';
+		width: 22px;
+		height: 32px;
+		padding-right: 10px;
+		@include icon(app);
+	}
+}
+
+.snapshot-visualisation__bar {
+	width: 0%;
+	height: 45px;
+	border-radius: 5px;
+	position: relative;
+	transition: all 1.4s ease;
+
+	&--blue {
+		background: $blue;
+		margin-bottom: 10px;
+	}
+
+	&--orange {
+		background: $orange;
+		transition-delay: .4s;
+	}
+
+	&--text {
+		color: white;
+		font-size: 18px;
+		position: absolute;
+		left: 18px;
+		top: 12px;
+		transition-delay: .2s;
+	}
+
+	&--rca {
+		color: white;
+		font-size: 26px;
+		font-weight: 700;
+		position: absolute;
+		right: 14px;
+		top: 12px;
+		transition-delay: .5s;
+	}
+
+	&--compet {
+		color: white;
+		font-size: 26px;
+		font-weight: 700;
+		position: absolute;
+		right: 14px;
+		top: 12px;
+		transition-delay: .7s;
+	}
+
+	&--figure {
+		color: $blue;
+		width: 300px;
+		text-align: left;
+		position: absolute;
+		right: -320px;
+		@include font-size(26);
+		@include font-weight(bold);
+		line-height: 48px;
+	}
+}
+
+.audience-highlight {
+	@include font-weight(bold);
+}
+
+.snapshot-visualisation__bar-invert {
+	.snapshot-visualisation__bar--rca {
+		color: $blue;
+		right: -100px;
+	}
+
+	.snapshot-visualisation__bar--compet {
+		color: $orange;
+		right: -100px;
+	}
+}
+
+.screenshot,
+.screenshot-thumbnail {
+	.snapshot-visualisation {
+		.snapshot-visualisation__bar {
+			transition: none;
+
+			&--orange,
+			&--text,
+			&--rca,
+			&--compet {
+				transition-delay: 0;
+			}
+		}
+	}
+}

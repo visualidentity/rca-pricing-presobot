@@ -1,0 +1,130 @@
+{% set options = {
+	id: "elite_plus_all_contract_fy25",
+	article_classes: "",
+	ribbonless: true
+} %}
+{% set optionsHeader = {
+	includeReLogo: false
+} %}
+{% extends "./njk/base.njk" %}
+{# import header partial and add to header_block #}
+{% import "./njk/_partials/header-border.njk" as header %}
+{% block header_block %}
+    <header>
+        <dl>
+            <dd class="title">
+                Elite Plus All contract
+            </dd>
+            <dd class="category">
+                Property Advertising
+            </dd>
+        </dl>
+    </header>
+{% endblock %}
+{% block content %}
+    <section class="subslide-container">
+        <div id="subslide-1" class="page01 subslide content active">
+            <div class="slide-header-border__content">
+                <h1 class="slide-header-border__h1" data-companywide-editable="elite_plus_all_contract_fy25_editable_title-wiA7aAlqBd">
+                    Be seen at the top of the search results every time and<br />move more listings with an Elite Plus All contract
+                </h1>
+            </div>
+            <div class="column-group column-group--12">
+                <div class="column column--span-6">
+                    <div class="accordion-icon-groups">
+                        <div class="accordion-icon--wrapper" data-accordion-parent-subslide="1">
+                            <div id="subslide-2" class="page02 subslide content accordion accordion--icon">
+                                <div
+                                    class="accordion-title accordion-title-layers--purple"
+                                    data-accordion-subslide="2"
+                                    data-companywide-interactive="data-companywide-interactive">
+                                    <span data-companywide-editable="elite_plus_all_contract_fy25_accordion_title_editable-7VG01Ie5mh">The best result for your business</span>
+                                </div>
+                                <div
+                                    class="accordion-content"
+                                    data-accordion-content-subslide="2"
+                                    data-companywide-editable="elite_plus_all_contract_fy25_accordion-content-editable-cHJ7XlVmTU"
+                                    data-toolbar="format list style color superscript align link removeformat">
+                                    <ul>
+                                        <li>14.6x more total views (on average) than a Basic listing.<sup>1</sup></li>
+                                        <li>2.9x more property details page views (on average) than a Basic listing.<sup>1</sup></li>
+                                        <li>4x more average enquiries (email and phone) than a Basic listing.<sup>1</sup></li>
+                                        <li>4x more average saving and sharing interactions than a Basic listing.<sup>1</sup></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div id="subslide-3" class="page03 subslide content accordion accordion--icon">
+                                <h4
+                                    class="accordion-title accordion-title-listing--purple"
+                                    data-accordion-subslide="3"
+                                    data-companywide-interactive="data-companywide-interactive">
+                                    <span data-companywide-editable="elite_plus_all_contract_fy25_accordion_title_editable-P7H6yd9Pph">Drive more engagement with new Elite Plus value</span>
+                                </h4>
+                                <div
+                                    class="accordion-content"
+                                    data-accordion-content-subslide="3"
+                                    data-companywide-editable="elite_plus_all_contract_fy25_accordion-content-editable-12jmDGXmbj"
+                                    data-toolbar="format list style color superscript align link removeformat">
+                                    <ul>
+                                        <li>Be seen on the homepage and unlock the power of the premium position for<br />maximum impact to a targeted audience.</li>
+                                        <li>Drive incremental views and enquiries with targeted email and eAlerts to<br />consumers who have shown interest to your property.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div id="subslide-4" class="page04 subslide content accordion accordion--icon">
+                                <h4
+                                    class="accordion-title accordion-title-person--purple"
+                                    data-accordion-subslide="4"
+                                    data-companywide-interactive="data-companywide-interactive">
+                                    <span data-companywide-editable="elite_plus_all_contract_fy25_accordion_title_editable-fu9szR3r9J">Build your brand to win more business</span>
+                                </h4>
+                                <div
+                                    class="accordion-content"
+                                    data-accordion-content-subslide="4"
+                                    data-companywide-editable="elite_plus_all_contract_fy25_accordion-content-editable-Ly6h15nrRT"
+                                    data-toolbar="format list style color superscript align link removeformat">
+                                    <ul>
+                                        <li>Grow your brand amongst potential buyers and tenants with elevated branding<br />in targeted emails and eAlerts.</li>
+                                        <li>Stay on Elite Plus for life and maximise your branding opportunities with<br />your listings appearing at the top in Sold and Leased (even when an exception<br />or Lower Valued Asset option is used).</li>
+                                        <li>No third-party display advertising on your property details page – all branding<br />is your own.</li>
+                                        <li>Your property details page will feature ‘more properties’ from your agency only.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="column column--span-6 column-image">
+                    <div class="elite-plus-all-contract-image"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="slide-navigation">
+        <div class="slide-navigation__button slide-navigation__button--prev"></div>
+        <div class="slide-navigation__button slide-navigation__button--next"></div>
+    </div>
+    <footer class="o-footer slide-footer">
+        <div class="disclaimer-target disclaimer" data-companywide-editable="disclaimer-77sx9XKgeW" data-toolbar="list style superscript removeformat">
+            <span>Source</span> <span>1. Data is trended nationally. RCA internal data, 1 January – 31 December 2023</span>
+        </div>
+        <div class="logo"></div>
+    </footer>
+{% endblock %}
+
+{% block js_rendered %}
+  if(!$("body").hasClass("client")) {
+	$(".accordion-title").click(function() {
+        var isActive = $(this).parent().hasClass('active');
+        var accordionParentSubslide = $(this).closest('.accordion-icon--wrapper').attr('data-accordion-parent-subslide');
+        if(isActive){
+            Bridge.Sub.show('subslide-' + accordionParentSubslide);
+        } else {
+            Bridge.Sub.show('subslide-' + $(this).attr('data-accordion-subslide'));
+        }
+    });
+    $(".slide-navigation__button--prev, .slide-navigation__button--next").click(function() {
+        $(".elite-plus-all-contract-image").toggleClass("swap-image");
+    });
+  }
+{% endblock %}

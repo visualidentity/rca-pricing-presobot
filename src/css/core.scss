@@ -1,0 +1,60 @@
+$output-bourbon-deprecation-warnings: false !default;
+@import "bourbon";
+@import "addons/prefixer";
+
+@import "slides_common";
+
+@import "includes/fonts";
+
+/* SCSS normalizer from https://github.com/JohnAlbin/normalize-scss -------- */
+@import "includes/normalize/import";
+
+/* Fonts ------------------------------------------------------------------- */
+
+@import "typography/import";
+
+/* Object Imports ---------------------------------------------------------- */
+
+@import "includes/objects/import";
+
+/* Layout Imports ---------------------------------------------------------- */
+
+@import "includes/layouts/import";
+
+/* Component Imports ------------------------------------------------------- */
+
+@import "includes/components/import";
+@import "includes/components/colours";
+@import "includes/components/grid";
+@import "includes/components/breadcrumb";
+@import "includes/components/accordion-icon";
+@import 'includes/components/inputs';
+
+/* Utility Imports --------------------------------------------------------- */
+@import "includes/utils/import";
+
+/* Slide Layout Imports ---------------------------------------------------------- */
+
+@import "includes/slide-layouts/import";
+
+/* States Imports ---------------------------------------------------------- */
+
+@import "includes/states/import";
+
+/* External modules -------------------------------------------------------- */
+
+@import "includes/external/import";
+
+/* Deck Style Imports -------------------------------------------------------- */
+
+@import "includes/deck_styles/title_slide";
+@import "includes/deck_styles/hybrid_tab";
+
+/* Slide Layout Style Imports -------------------------------------------------------- */
+
+@import "includes/slide-layouts/house-slide";
+
+/* Required Style Imports -------------------------------------------------------- */
+
+@import "includes/required/subslides";
+@import "includes/base_styles";

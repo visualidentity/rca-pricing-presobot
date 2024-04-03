@@ -1,0 +1,306 @@
+// Font family
+$font-main: "REAPangea", Helvetica, Arial, sans-serif;
+
+/// Map deep get
+/// @author https://css-tricks.com/snippets/sass/deep-getset-maps/
+/// @param {Map} $map - Map
+/// @param {Arglist} $keys - Key chain
+/// @return {*} - Desired value
+@function map-deep-get($map, $keys...) {
+  @each $key in $keys {
+    $map: map-get($map, $key);
+  }
+  @return $map;
+}
+
+@mixin font-main() {
+  font-family: $font-main;
+  letter-spacing: 0;
+}
+
+$font-size-list: (
+  72: 72px,
+  70: 70px,
+  66: 66px,
+  60: 60px,
+  50: 50px,
+  45: 45px,
+  40: 40px,
+  36: 36px,
+  34: 34px,
+  32: 32px,
+  26: 26px,
+  25: 25px,
+  24: 24px,
+  20: 20px,
+  18: 18px,
+  16: 16px,
+  15: 15px,
+  14: 14px,
+  12: 12px,
+  10: 10px
+);
+
+$leading: 6px;
+
+@function get-font-size($size) {
+  @if map-has-key($font-size-list, $size) {
+    $font-details: map-get($font-size-list, $size);
+
+    $font-size: if(
+      type_of($font-details) == map,
+      map-get($font-details, font-size),
+      $font-details
+    );
+
+    @return $font-size;
+  } @else {
+    @error "font-size #{$size} does not exist in font-size object";
+  }
+}
+
+@function get-line-height($size) {
+  @if map-has-key($font-size-list, $size) {
+    $font-details: map-get($font-size-list, $size);
+
+    $line-height: if(
+      type_of($font-details) == map,
+      map-get($font-details, line-height),
+      $font-details + $leading
+    );
+
+    @return $line-height;
+  } @else {
+    @error "font-size #{$size} does not exist in font-size object";
+  }
+}
+
+@mixin font-size($size: 20) {
+  font-size: get-font-size($size);
+  line-height: get-line-height($size);
+}
+
+// Font weight
+// https://developer.mozilla.org/en-US/docs/Web/CSS/font-weight
+$font-weight-list: (
+  thin: 200,
+  light: 300,
+  normal: 400,
+  medium: 500,
+  demi: 600,
+  bold: 700,
+  bolder: 900
+);
+
+@function get-font-weight($weight) {
+  @if map-has-key($font-weight-list, $weight) {
+    $font-weight: map-get($font-weight-list, $weight);
+    @return $font-weight;
+  } @else {
+    @error "font-weight #{$weight} has not been included in this deck";
+  }
+}
+
+@mixin font-weight($weight: normal) {
+  font-weight: get-font-weight($weight);
+}
+
+// Colours
+
+$colour-list: (
+  white: #ffffff,
+  black: #000000,
+  rca-lightCharcoal: #323f49,
+  rca-charcoal: #333f48,
+  rca-spaceGrey: #565359,
+  rca-grey: #f2f2f2,
+  rca-lightGrey: #75787b,
+  rca-blue: #055fb4,
+  rca-orange: #ff5328,
+  rca-purple: #6f4497,
+  rca-softBlue: #5a72b3,
+  rca-softGreen: #7ec8c4,
+  rca-sepia: #b6b6b6
+);
+
+@function colour($colour-name) {
+  @if map-has-key($colour-list, $colour-name) {
+    @return map-get($colour-list, $colour-name);
+  } @else {
+    @error "colour #{$colour-name} does not exist in colour object";
+  }
+}
+
+// Z-indexes
+
+$slideZ: 1;
+$slide-constantZ: 100;
+
+//----------------------------------------------------------------------------//
+// Measurements --------------------------------------------------------------//
+//----------------------------------------------------------------------------//
+// Alter these as necessary
+
+$pagepad: 120px; // left and right padding
+$pagepad-top: 30px; // top padding - space between bottom of header and top of content
+$pagepad-bottom: 60px; // bottom padding - space between bottom of content and footer
+$footer-height: 80px;
+$header-height: 160px;
+
+$dimensions: (
+  width: 1920px,
+  height: 1080px
+);
+
+$slide-width: 1920px;
+$slide-height: 1080px;
+
+$content-width: $slide-width - ($pagepad * 2);
+$content-height: $slide-height -
+  ($pagepad-top + $header-height + $footer-height + $pagepad-bottom);
+
+$header-width: $content-width;
+$footer-width: $slide-width;
+
+// Useful variables
+//------------------------------//
+
+$directions: (top, right, bottom, left);
+$corners: (top-right, bottom-right, top-left, bottom-left);
+$text-primary: colour(rca-lightCharcoal);
+$text-inverse: colour(white);
+$blue: colour(rca-blue);
+$orange: colour(rca-orange);
+$charcoal: colour(rca-charcoal);
+$grey: colour(rca-grey);
+$lightGrey: colour(rca-lightGrey);
+$purple: colour(rca-purple);
+$softBlue: colour(rca-softBlue);
+$softGreen: colour(rca-softGreen);
+$sepia: colour(rca-sepia);
+
+// Icons
+//------------------------------//
+
+$icon-list: (
+  tick: (),
+  business: (),
+  listing: (),
+  property: (),
+  search: (),
+  support: (),
+  webinar: (),
+  data: (),
+  views: (),
+  phone: (),
+  email: (),
+  total: (),
+  down: (),
+  refresh: (),
+  visits: (),
+  time: (),
+  app: (),
+  remove: (),
+  buld: (),
+  area: (),
+  heart: (),
+  hat: (),
+  scatter: (),
+  pricing: (),
+  bullseye: (),
+  message: ()
+);
+
+@function icon($icon) {
+  @if map-has-key($icon-list, $icon) {
+    @return map-get($icon-list, $icon);
+  } @else {
+    @error "icon #{$icon} does not exist in css/img/icons";
+  }
+}
+
+@mixin icon($icon: tick) {
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-image: url("./img/icons/#{$icon}.svg");
+}
+
+// Borders
+//------------------------------//
+
+$border-radius: 6px;
+$border-radius-lrg: 12px;
+$border-primary: 2px solid colour(black);
+$border-highlight: 2px solid colour(black);
+
+$pangea: "REAPangea", "museo_sans", Helvetica, Arial, sans-serif;
+
+// debug
+$debug: false;
+
+// Preso Modes
+
+$preso-modes: (
+  prep: "preview",
+  present: "present",
+  review: "review",
+  edit: "edit-mode",
+  online: "share_online",
+  screenshot: "screenshot",
+  screenshot-thumbnail: "screenshot-thumbnail",
+  screenshot-full: "screenshot-full",
+  client: "client",
+  master: "master"
+);
+
+$pangea-light: "REAPangea-Light";
+$pangea-regular: "REAPangea-Regular";
+$pangea-medium: "REAPangea-Medium";
+$pangea-semiBold: "REAPangea-SemiBold";
+$pangea-bold: "REAPangea-Bold";
+$pangea-text: "REAPangeaText";
+
+// Special Cases/Aliases
+//------------------------------//
+
+$textgrey: colour(rca-blue);
+$border-colour: colour(rca-lightGrey);
+
+//----------------------------------------------------------------------------//
+// Measurements --------------------------------------------------------------//
+//----------------------------------------------------------------------------//
+
+// Grid
+//------------------------------//
+
+$pagepad: 120px; // left and right padding
+$pagepad-top: 40px; // top padding
+$pagepad-bottom: 40px; // bottom padding
+$footer-height: 90px;
+$header-height: 150px;
+$header-height-two-lines: $header-height + 50px;
+
+$slide-width: 1920px;
+$slide-height: 1080px;
+
+$content-width: $slide-width - ($pagepad * 2);
+$content-height: $slide-height -
+  ($pagepad-top + $header-height + $footer-height + $pagepad-bottom);
+$content-height-trim: $content-height - 50px;
+
+$header-width: $content-width;
+$footer-width: $slide-width;
+
+// number of columns in grid and their corresponding single column widths...
+$grid-sizes: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15;
+$column-widths: 1680px 790px 494px 345px 296px 255px 214px 184px 160px 141px
+  125px 113px 101px 92px 84px;
+$grid-gutters: 0px 100px 100px 100px 50px 30px 30px 30px 30px 30px 30px 30px
+  30px 30px 30px;
+
+// default column widths and gutters
+$grid-size-default: 9;
+$column-width-default: 160px; // default is 9 col width - most commonly used
+$columm-height: $content-height;
+$gutter-default: 30px;

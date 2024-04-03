@@ -1,0 +1,130 @@
+.summer-stats {
+  &.summer-stats--vertical {
+    width: 759px;
+    .summer-stats__list {
+      display: flex;
+      flex-direction: column;
+      .summer-stats__list-item {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        padding-left: 196px;
+        text-align: left;
+        padding-top: 54px;
+        padding-bottom: 52px;
+        border-bottom: 1px solid #b6b6b6;
+        &:last-child {
+          border-bottom: none;
+        }
+        .summer-stats__list-item-icon {
+          position: absolute;
+          left: 0;
+          top: 50%;
+          transform: translateY(-50%);
+          &.summer-stats__list-item-icon--audience {
+            left: 16px;
+            width: 101.37px;
+            height: 101.3px;
+            background-image: url("../css/img/summer-stats/audience.svg");
+            background-size: cover;
+          }
+          &.summer-stats__list-item-icon--visits {
+            width: 151.57px;
+            height: 72.17px;
+            background-image: url("../css/img/summer-stats/visit.svg");
+            background-size: cover;
+          }
+          &.summer-stats__list-item-icon--app {
+            width: 90px;
+            height: 138px;
+            background-image: url("../css/img/summer-stats/app.svg");
+            background-size: cover;
+            left: 85px;
+            transform: translate(-50%, -50%);
+          }
+        }
+        .summer-stats__list-item-name {
+          font-weight: 600;
+          font-size: 32px;
+          line-height: 120%;
+          color: #3e3b41;
+          margin-bottom: 7px;
+        }
+        .summer-stats__list-item-value {
+          font-weight: 600;
+          font-size: 60px;
+          line-height: 60px;
+          color: #3e3b41;
+          margin-bottom: 7px;
+        }
+        .summer-stats__list-item-description {
+          font-weight: 400;
+          font-size: 22px;
+          line-height: 28px;
+          color: #3e3b41;
+        }
+      }
+    }
+  }
+
+  &.summer-stats--horizontal {
+    display: inline-flex;
+    background: #f8f8f8;
+    border-radius: 10px;
+    .summer-stats__list {
+      display: flex;
+      padding-top: 79px;
+      padding-bottom: 49px;
+      .summer-stats__list-item {
+        width: 419px;
+        min-height: 504px;
+        border-right: 1px solid #b6b6b6;
+        display: flex;
+        flex-direction: column;
+        &:last-child {
+          border-right: none;
+        }
+        .summer-stats__list-item-icon {
+          height: 222px;
+          background-repeat: no-repeat;
+          background-position: center;
+          &.summer-stats__list-item-icon--audience {
+            background-image: url("../css/img/summer-stats/audience.svg");
+            background-size: 101.37px 101.3px;
+          }
+          &.summer-stats__list-item-icon--visits {
+            background-image: url("../css/img/summer-stats/visits.svg");
+            background-size: 152px 72.17px;
+          }
+          &.summer-stats__list-item-icon--app {
+            background-image: url("../css/img/summer-stats/app.svg");
+            background-size: 90px 138px;
+          }
+        }
+        .summer-stats__list-item-name {
+          font-weight: 600;
+          font-size: 32px;
+          line-height: 43.2px;
+          color: #3e3b41;
+          text-align: center;
+          margin-bottom: 7px;
+        }
+        .summer-stats__list-item-value {
+          font-weight: 600;
+          font-size: 90px;
+          line-height: 80px;
+          text-align: center;
+          color: #3e3b41;
+          margin-bottom: 7px;
+        }
+        .summer-stats__list-item-description {
+          font-weight: 400;
+          font-size: 22px;
+          line-height: 28px;
+          color: #3e3b41;
+          text-align: center;
+        }
+      }
+    }
+  }
+}

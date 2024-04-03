@@ -1,0 +1,319 @@
+{% import "./njk/_partials/header.njk" as header %}
+{% import "./njk/_partials/table-subscription.njk" as table_performance %}
+
+{% set headerData = {
+	id: "subscription-options-fy25",
+	title: "Want to get an even better return on your investment? <br />Upgrade your contract today.",
+	customClass: 'u-margin--bottom-none'
+} %}
+
+
+{% set tableData1 = [
+	{
+		headings: [
+			{
+				title: 'All Contracts'
+			},
+			{
+				title: '<span>Elite Plus All<span></span>',
+				removable: true
+			},
+			{
+				title: '<span>Elite All</span>',
+				removable: true
+			},
+			{
+				title: '<span>Enhanced All</span>',
+				removable: true
+			},
+			{
+				title: '<span>Standard</span>',
+				removable: true
+			}
+		]
+	},
+	{
+		heading: '<span>Your subscription</span>',
+		text: [
+			'',
+			'',
+			'',
+			''
+		]
+	},
+	{
+		heading: '<table class="table-monthly-subscription__heading"><tr><td rowspan="3"><span><span class="monthly-cost">Monthly <br /> Subscription Cost</span><br /> <span class="gst">(Inc GST)</span></span></td><td><span>VIC, NSW, QLD</span></td></tr><tr><td><span>NT, SA, WA, TAS</span></td></tr><tr><td><span>ACT</span></td></tr></table>',
+		removable: true,
+		text: [
+			'<span class="highlight">$119</span>',
+			'<span class="highlight">$119</span>',
+			'<span class="highlight">$119</span>',
+			'<table class="table-monthly-subscription"><tr><td><span class="highlight">$1,338.48</span></td></tr><tr><td><span class="highlight">$1,040.70</span></td></tr><tr><td><span class="highlight">$832.26</span></td></tr></table>'
+		]
+	},
+	{
+		heading: '<span>Listing structure</span>',
+		removable: true,
+		text: [
+			'<span>Listings automatically upgraded to Elite Plus at our best rate in market</span>',
+			'<span>Listings automatically upgraded to Elite at our best rate in market</span>',
+			'<span>Listings automatically upgraded to Enhanced at our best rate in market</span>',
+			'<span>10 free Basic new listings per month</span>'
+		]
+	},
+	{
+		heading: '<span>Priority in search results </span>',
+		removable: true,
+		text: [
+			'<span class="stack stack-1"></span>',
+			'<span class="stack stack-2"></span>',
+			'<span class="stack stack-3"></span>',
+			'<span class="stack stack-4"></span>'
+		]
+	},
+	{
+		heading: '<span>Listing size</span>',
+		removable: true,
+		text: [
+			'<span class="listing listing-1"></span>',
+			'<span class="listing listing-2"></span>',
+			'<span class="listing listing-3"></span>',
+			'<span class="listing listing-4"></span>'
+		]
+	},
+	{
+		heading: '<span>Average total views per listing<sup>1</sup><br /><span class="sub-heading">(compared to a Basic listing)</span></span>',
+		removable: true,
+		text: [
+			'<span>14.6x</span>',
+			'<span>10.2x</span>',
+			'<span>7x</span>',
+			'<span>–</span>'
+		]
+	},
+	{
+		heading: '<span>Average enquiry per listing (email and phone)<sup>1</sup><br /><span class="sub-heading">(compared to a Basic listing)</span></span>',
+		removable: true,
+		text: [
+			'<span>4x</span>',
+			'<span>2.7x</span>',
+			'<span>2x</span>',
+			'<span>–</span>'
+		]
+	},
+	{
+		heading: '<span>Average property details page views per listing<sup>1</sup><br /><span class="sub-heading">(compared to a Basic listing)</span></span>',
+		removable: true,
+		text: [
+			'<span>2.9x</span>',
+			'<span>2x</span>',
+			'<span>1.6x</span>',
+			'<span>–</span>'
+		]
+	},
+	{
+		heading: '<span>Average saving and sharing per listing<sup>1</sup><br /><span class="sub-heading">(compared to a Basic listing)</span></span>',
+		removable: true,
+		text: [
+			'<span>4x</span><p>(highest number of saving and sharing interactions)</p>',
+			'<span>2.9x</span>',
+			'<span>2.2x</span>',
+			'<span>–</span>'
+		]
+	},
+	{
+		heading: '<span>Rotation frequency (days until listing rotates <br /> back to the top position)</span>',
+		removable: true,
+		text: [
+			'<span class="rotation rotation-7"></span>',
+			'<span class="rotation rotation-14"></span>',
+			'<span class="rotation rotation-30"></span>',
+			'<span class="rotation cross">Does not rotate</span>'
+		]
+	},
+	{
+		heading: '<span>Extra Location<sup>2</sup></span>',
+		removable: true,
+		text: [
+			'<span class="tick"></span>',
+			'<span class="cross"></span>',
+			'<span class="cross"></span>',
+			'<span class="cross"></span>'
+		]
+	}
+] %}
+
+{% set tableData2 = [
+	{
+		headings: [
+			{
+				title: 'All Contracts'
+			},
+			{
+				title: '<span>Elite Plus All<span></span>',
+				removable: true
+			},
+			{
+				title: '<span>Elite All</span>',
+				removable: true
+			},
+			{
+				title: '<span>Enhanced All</span>',
+				removable: true
+			},
+			{
+				title: '<span>Standard</span>',
+				removable: true
+			}
+		]
+	},
+	{
+		heading: '<span>Listing upgrade rates</span>',
+		removable: true,
+		text: [
+			'<span>Best rates in market</span>',
+			'<span>Discounted step up rates <br />for Elite Plus listings</span>',
+			'<span>Discounted step up rates <br />for Elite Plus and Elite listings</span>',
+			'<span>Rack rate</span>'
+		]
+	},
+	{
+		heading: '<span>Access to Exceptions</span>',
+		removable: true,
+		text: [
+			'<span class="tick"></span>',
+			'<span class="tick"></span>',
+			'<span class="cross"></span>',
+			'<span class="cross"></span>'
+		]
+	},
+	{
+		heading: '<span>Access to Lower Valued Asset (LVA) options</span>',
+		removable: true,
+		text: [
+			'<span>$800k – For Sale <br /> Under $75k (VIC, NSW, QLD) - For Lease,<br />Under $50k (WA, SA, TAS, NT, ACT) - For<br />Lease<br />Excl. GST.</span>',
+			'<span>$600k – For Sale <br /> Under $75k (VIC, NSW, QLD) - For Lease,<br />Under $50k (WA, SA, TAS, NT, ACT) - For<br />Lease<br />Excl. GST.</span>',
+			'<span class="cross"></span>',
+			'<span class="cross"></span>'
+		]
+	},
+	{
+		heading: '<span>Minimum listing requirement</span>',
+		removable: true,
+		text: [
+			'<span>No minimum commitment<br />required</span>',
+			'<span>No minimum commitment<br />required</span>',
+			'<span>9 listing upgrades (Enhanced listing or<br />above) per quarter</span>',
+			'<span>No minimum commitment<br />required</span>'
+		]
+	},
+	{
+		heading: '<span>Basic Cap </span>',
+		removable: true,
+		text: [
+			'<span class="cross"></span>',
+			'<span class="cross"></span>',
+			'<span class="cross"></span>',
+			'<span>10 free Basic listings per<br />month</span>'
+		]
+	},
+	{
+		heading: '<span>Branding and listing add-ons</span>',
+		text: [
+			'',
+			'',
+			'',
+			''
+		]
+	},
+	{
+		heading: '<span>Access to Native Ads</span>',
+		removable: true,
+		text: [
+			'<span class="tick text">10% bonus Native Ad impressions <br />on booked campaigns</span>',
+			'<span class="tick"></span>',
+			'<span class="cross"></span>',
+			'<span class="cross"></span>'
+		]
+	},
+	{
+		heading: '<span>Access to Audience Maximiser</span>',
+		removable: true,
+		text: [
+			'<span class="tick text">Access to Audience Maximiser Gold, <br />including LinkedIn</span>',
+			'<span class="tick"></span>',
+			'',
+			''
+		]
+	},
+	{
+		heading: '<span>Enhanced Agent and Agency branding</span>',
+		removable: true,
+		text: [
+			'<span class="tick"></span>',
+			'<span class="cross"></span>',
+			'<span class="cross"></span>',
+			'<span class="cross"></span>'
+		]
+	},
+	{
+		heading: '<span>Top priority on new listing email alerts <br /> for targeted consumers</span>',
+		removable: true,
+		text: [
+			'<span class="tick"></span>',
+			'<span class="cross"></span>',
+			'<span class="cross"></span>',
+			'<span class="cross"></span>'
+		]
+	},
+	{
+		heading: '<span>Property showcased on international platforms</span>',
+		removable: true,
+		text: [
+			'<span class="tick"></span>',
+			'<span class="tick"></span>',
+			'<span class="cross"></span>',
+			'<span class="cross"></span>'
+		]
+	}
+] %}
+
+
+{% block content %}
+	<article id="subscription-options-fy25">
+
+				{{ header.data(headerData) }}
+
+				<div class="subscription-options-fy25--refresh" data-header-refresh></div>
+
+				<div class="subslide-container">
+					<div id="subslide-1" class="page01 subslide content active">
+						<div class="arrow arrow-down" data-arrow-down></div>
+						<div class="subscription-options-fy25-table-1">
+							{{ table_performance.data(tableData1, 'subscription_options_table_1', 'table-subscription-option-1') }}
+						</div>
+					</div>
+
+					<div id="subslide-2" class="page02 subslide content">
+						<div class="arrow arrow-up" data-arrow-up></div>
+						<div class="subscription-options-fy25-table-2">{{ table_performance.data(tableData2, 'subscription_options_table_2', 'table-subscription-option-2') }}</div>
+					</div>
+				</div>
+
+				<footer class="slide-footer">
+					<div class="disclaimer-target">
+						<div class="disclaimer-link">Source</div>
+						<div class="disclaimer">
+						1. RCA internal data, 1 January - 31 December 2023.<br />
+						2. Appear in up to three extra locations. Number and location of suburbs listing is extended to is determined by realcommercial.com.au in its sole discretion.
+						</div>
+						<div class="logo"></div>
+					</div>
+				</footer>
+
+	</article>
+{% endblock %}
+
+<script type="text/javascript">
+  {% include './sections/fy25_pricing/slides/subscription_options_fy25/slide.js' %}
+</script>
