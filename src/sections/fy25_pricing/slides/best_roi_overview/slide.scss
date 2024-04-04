@@ -147,17 +147,28 @@
 
             cursor: pointer;
 
+            &:before {
+              content:"read more";
+              font-weight:600;
+              font-size:18px;
+              line-height:22px;
+              position:absolute;
+              right:25px;
+              top:47%;
+              transform:translateY(-47%);
+              width:100px;
+            }
+
             &::after {
               position: absolute;
               top: 50%;
-              right: 25px;
+              right: 10px;
               transform: translateY(-50%);
-
               content: "";
               background-image: url(img/chevron.svg);
-              background-size: 12.07px 22.128px;
-              width: 12.07px;
-              height: 22.128px;
+              background-size: 30px 30px;
+              width: 30px;
+              height: 30px;
             }
 
             &:last-child {
@@ -166,12 +177,30 @@
 
             &--purple {
               background: #f8e9ff;
+               &:before {
+                color:#9C7BBE;
+               }
+               &:after {
+                 background-image: url(img/chevron-purple.svg);
+               }
             }
             &--sky-blue {
               background: #d9f7ff;
+              &:before {
+                color:#88C2DF;
+              }
+               &:after {
+                 background-image: url(img/chevron-blue.svg);
+               }
             }
             &--teal {
               background: #d9fffa;
+              &:before {
+                color:#64CBD2;
+              }
+              &:after {
+                 background-image: url(img/chevron-steal.svg);
+               }
             }
 
             &__title {
@@ -387,12 +416,12 @@
         &__visual {
           &--elite-plus {
             position: absolute;
-            top: 78px;
-            right: 92px;
-            background-image: url(img/elite-plus-value-visual.png);
+            top: 38px;
+            right: 72px;
+            background-image: url(img/elite-plus-value-visual.png?v2);
             background-size: cover;
-            width: 786px;
-            height: 513px;
+            width: 838px;
+            height: 565px;
           }
           &--audience-maximiser {
             position: absolute;

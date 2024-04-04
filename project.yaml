@@ -41,17 +41,18 @@ dimensions:
 sections:
  
   - key: fy25_pricing
-    title: 'FY25 Pricing'
+    title: 'Presobot'
     tags: [editable]
     maxAdjunctSlides: -1
     slides:
-      - { key: the_best_return_for_your_investment_cover, title: 'The Best ROI'}
       - { key: audience_overview_fy25, title: 'Audience Overview' }
       - { key: best_roi_overview, title: 'Best ROI Overview' }
       - { key: fy25_roi_summary, title: 'Your Agency’s ROI summary' }
-      - { key: elite_plus_all_contract_fy25, title: 'Subscriptions - Elite Plus All', tags: [subslide_container] }
+      - { key: depth_overview_table, title: 'Depth Overview Table', tags: [subslide_container] }
+      - { key: elite_plus_all_contract_fy25, title: 'Subscriptions - Elite Plus All' }
       - { key: enhanced_all_contract_fy25, title: 'Subscriptions - Enhanced All' }
       - { key: subscription_options_fy25, title: 'Subscriptions - Options', tags: [subslide_container] }
+      - { key: elite_plus_get_you_noticed, title: 'Elite Plus gets you noticed' }
   - key: thank_you
     title: 'Thank You'
 content_editors:

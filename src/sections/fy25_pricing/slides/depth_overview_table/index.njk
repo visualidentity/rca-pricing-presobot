@@ -1,0 +1,253 @@
+{% import "./njk/_partials/header.njk" as header %}
+{% import "./njk/_partials/table-performance.njk" as table_performance %}
+{% import "./njk/_partials/footer.njk" as footer %}
+
+{# import header partial and add to header_block #}
+{% import "./njk/_partials/header-border.njk" as header_block %}
+
+
+{% set header1Data = {
+	id: "depth_overview_table-1",
+	title: "Compare our listing options",
+	subtitle: "Build the best campaign for your vendors and landlords",
+	customClass: 'u-margin--bottom-none'
+} %}
+
+{% set header2Data = {
+	id: "depth_overview_table-2",
+	title: "Compare our listing options",
+	subtitle: "Build the best campaign for your vendors and landlords",
+	customClass: 'u-margin--bottom-none'
+} %}
+
+{% set table1Data = [
+	{
+		headings: [
+			{
+				title: ' '
+			},
+			{
+				title: 'Elite Plus',
+				removable: true,
+				editable: false
+			},
+			{
+				title: 'Elite',
+				removable: true,
+				editable: false
+			},
+			{
+				title: 'Enhanced',
+				removable: true,
+				editable: false
+			},
+			{
+				title: 'Basic',
+				removable: true,
+				editable: false
+			}
+		]
+	},
+	{
+		heading: 'Average total views per listing<br/>(compared to a Basic listing)<sup>1</sup>',
+		text: [
+			'<strong>14.6x</strong><br /><p>(highest number of total views)<p>',
+			'<strong>10.2x</strong>',
+			'<strong>7x</strong>',
+			'–'
+		],
+		removable: true
+	},
+	{
+		heading: 'Average enquiry per listing<br/>(compared to a Basic listing)<sup>1</sup>',
+		text: [
+			'<strong>3.9x</strong><br /><p>(highest number of enquiries on site)</p>',
+			'<strong>2.7x</strong>',
+			'<strong>2x</strong>',
+			'–'
+		],
+		removable: true
+	},
+  	{
+		heading: 'Average property details<br/>page views per listing<br/>(compared to a Basic listing)<sup>1</sup>',
+		text: [
+			'<strong>2.9x</strong><br /><p>(highest number of<br />property details page views)</p>',
+			'<strong>2x</strong>',
+			'<strong>1.6x</strong>',
+			'–'
+		],
+		removable: true
+	},
+	{
+		heading: 'Average saving and<br/>sharing per listing<br/>(compared to a Basic listing)<sup>1</sup>',
+		text: [
+			'<strong>4x</strong><br /><p>(highest number of saving<br />and sharing interactions)</p>',
+			'<strong>2.9x</strong>',
+			'<strong>2.2x</strong>',
+			'–'
+		],
+		removable: true
+	}
+] %}
+
+{% set table2Data = [
+	{
+		headings: [
+			{
+				title: ' '
+			},
+			{
+				title: 'Elite Plus',
+				removable: true
+			},
+			{
+				title: 'Elite',
+				removable: true
+			},
+			{
+				title: 'Enhanced',
+				removable: true
+			},
+			{
+				title: 'Basic',
+				removable: true
+			}
+		]
+	},
+	{
+		heading: 'Priority in search results',
+		text: [
+			'<span class="stack stack-1"></span>',
+			'<span class="stack stack-2"></span>',
+			'<span class="stack stack-3"></span>',
+			'<span class="stack stack-4"></span>'
+		],
+		removable: true,
+		editable: false
+	},
+	{
+		heading: 'Rotation frequency<br />Days until listing moves back <br />to the top position',
+		text: [
+			'<span class="rotation rotation-7"></span>',
+			'<span class="rotation rotation-14"></span>',
+			'<span class="rotation rotation-30"></span>',
+			'<span class="rotation cross">Does not rotate</span>'
+		],
+		removable: true,
+		editable: true,
+		editItem: [4]
+	},
+	{
+		heading: 'Listing size',
+		text: [
+			'<span class="listing listing-1"></span>',
+			'<span class="listing listing-2"></span>',
+			'<span class="listing listing-3"></span>',
+			'<span class="listing listing-4"></span>'
+		],
+		removable: true,
+		editable: false
+	},
+	{
+		heading: 'Extra Location',
+		text: [
+			'<div class="list-content"><div class="list">Free with listing</div><div class="list">Up to three Extra Locations*</div><div class="list">Extended in app experience<br /> for maximum exposure</div></div>',
+			'<span class="cross"></span>',
+			'<span class="cross"></span>',
+			'<span class="cross"></span>'
+		],
+		removable: true,
+		editable: true,
+		editItem: [1]
+	},
+	{
+		heading: 'Unlock ability to purchase onsite<br/>retargeting options with Native Ads',
+		text: [
+			'<span class="tick">Includes 10% bonus inventory on all campaigns booked</span>',
+			'<span class="tick"></span>',
+			'<span class="cross"></span>',
+			'<span class="cross"></span>'
+		],
+		removable: true,
+		editable: true,
+		editItem: [1]
+	},
+	{
+		heading: 'Unlock ability to purchase<br/>offsite retargeting options with<br/>Audience Maximiser',
+		text: [
+			'<span class="tick">Access to Elite Plus Max Including LinkedIn</span>',
+			'<span class="tick"></span>',
+			'<span class="cross"></span>',
+			'<span class="cross"></span>'
+		],
+		removable: true,
+		editable: true,
+		editItem: [1]
+	},
+	{
+		heading: 'Elevated Agent & Agency branding',
+		text: [
+			'<span class="tick"></span>',
+			'<span class="tick"></span>',
+			'<span class="cross"></span>',
+			'<span class="cross"></span>'
+		],
+		removable: true,
+		editable: false
+	}
+] %}
+
+{% set footer1Data = {
+	id: 'depth_overview_table-disclaimer',
+	newLogo: true,
+	disclaimer: ['Source: RCA internal data, 1 January - 31 December 2023.']
+} %}
+
+{% set footer2Data = {
+	id: 'depth_overview_table-two-disclaimer',
+	newLogo: true,
+	disclaimer: ['Source: RCA internal data, 1 January - 31 December 2023.<br />1. Appear up to three extra locations. Number and location of suburbs listing is extended to is determined by realcommercial.com.au in its sole discretion.']
+} %}
+
+{% block content %}
+	<article id="depth_overview_table">
+		{% block header_block %}
+			<header>
+				<dl class="breadcrumb breadcrumb--purple">
+					<dd class="icon icon--property-ads">Property Advertising</dd>
+				</dl>
+			</header>
+		{% endblock %}
+		<div class="depth_overview_table--refresh" data-header-refresh></div>
+		<div class="subslide-container">
+
+			<div id="subslide-1" class="page01 subslide content active">
+				{{ header.data(header1Data) }}
+				{{ table_performance.data(table1Data, 'depth_overview_table_table_1', 'table-performance-1') }}
+				<div class="arrow arrow-up disable" data-arrow-up data-companywide-interactive></div>
+				<div class="arrow arrow-down" data-arrow-down data-companywide-interactive></div>
+				<footer class="slide-footer">
+					<div class="disclaimer-target">
+						<div class="disclaimer-link">Source</div>
+						<div class="disclaimer" data-companywide-editable="depth_overview_table-disclaimer-editable">Source: RCA internal data, 1 January - 31 December 2023.</div>
+						<div class="logo"></div>
+					</div>
+				</footer>
+			</div> 
+
+			<div id="subslide-2" class="page02 subslide content">
+				{{ header.data(header2Data) }}
+				{{ table_performance.data(table2Data, 'depth_overview_table_table_2', 'table-performance-2') }}
+				<div class="arrow arrow-up" data-arrow-up data-companywide-interactive></div>
+				<div class="arrow arrow-down disable" data-arrow-down data-companywide-interactive></div>
+				{{ footer.data(footer2Data) }}
+			</div>
+
+		</div>
+		<div data-header-refresh></div>
+	</article>
+{% endblock %}
+
+<script type="text/javascript">
+  {% include './sections/fy25_pricing/slides/depth_overview_table/slide.js' %}
+</script>

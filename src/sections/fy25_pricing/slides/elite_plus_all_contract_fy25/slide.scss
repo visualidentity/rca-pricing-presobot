@@ -191,8 +191,9 @@
     }
 
     .slide-header-border__content {
-      height: 168px;
+      height: 128px;
       margin-bottom: 22px;
+      margin-top: 80px;
     }
 
     .logo {
@@ -200,7 +201,7 @@
       height: 57px;
       position: absolute;
       right: 110px;
-      top: -14px;
+      top: 0;
       transition: all 0.4s ease-in-out;
       background-image: url("./img/rea-logo.png");
       background-size: 355px 57px;
@@ -251,7 +252,7 @@
           min-height: 75px;
           height: 75px;
           &:after {
-            right: 0;
+            display:none;
           }
           &.accordion-title {
             &-layers--purple {
@@ -284,6 +285,7 @@
           line-height: 24px;
           padding-left: 85px;
           padding-top: 9px;
+          display:block !important;
           ul {
             li {
               font-family: $pangea;
@@ -342,12 +344,10 @@
         position: absolute;
         height: 87px;
         width: 986px;
-        top: 0;
+        top: 30px;
         left: 121px;
         font-size: 13px;
         line-height: 15px;
-        opacity: 0;
-        visibility: hidden;
         * {
           font-size: 13px;
           line-height: 15px;

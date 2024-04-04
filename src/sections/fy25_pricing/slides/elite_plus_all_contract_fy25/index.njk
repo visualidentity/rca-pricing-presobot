@@ -23,17 +23,17 @@
 {% endblock %}
 {% block content %}
     <section class="subslide-container">
-        <div id="subslide-1" class="page01 subslide content active">
+        <div class="active">
             <div class="slide-header-border__content">
-                <h1 class="slide-header-border__h1" data-companywide-editable="elite_plus_all_contract_fy25_editable_title-wiA7aAlqBd">
-                    Be seen at the top of the search results every time and<br />move more listings with an Elite Plus All contract
+                <h1 class="slide-header-border__h1" data-companywide-editable="elite_plus_all_contract_fy25_editable_title-wiA7aAlqSrR">
+                    Our best performing listing at the best rates in market <br /> with Elite Plus All contract
                 </h1>
             </div>
             <div class="column-group column-group--12">
                 <div class="column column--span-6">
                     <div class="accordion-icon-groups">
                         <div class="accordion-icon--wrapper" data-accordion-parent-subslide="1">
-                            <div id="subslide-2" class="page02 subslide content accordion accordion--icon">
+                            <div class="accordion accordion--icon">
                                 <div
                                     class="accordion-title accordion-title-layers--purple"
                                     data-accordion-subslide="2"
@@ -53,7 +53,7 @@
                                     </ul>
                                 </div>
                             </div>
-                            <div id="subslide-3" class="page03 subslide content accordion accordion--icon">
+                            <div class="accordion accordion--icon">
                                 <h4
                                     class="accordion-title accordion-title-listing--purple"
                                     data-accordion-subslide="3"
@@ -71,7 +71,7 @@
                                     </ul>
                                 </div>
                             </div>
-                            <div id="subslide-4" class="page04 subslide content accordion accordion--icon">
+                            <div class="accordion accordion--icon">
                                 <h4
                                     class="accordion-title accordion-title-person--purple"
                                     data-accordion-subslide="4"
@@ -114,15 +114,6 @@
 
 {% block js_rendered %}
   if(!$("body").hasClass("client")) {
-	$(".accordion-title").click(function() {
-        var isActive = $(this).parent().hasClass('active');
-        var accordionParentSubslide = $(this).closest('.accordion-icon--wrapper').attr('data-accordion-parent-subslide');
-        if(isActive){
-            Bridge.Sub.show('subslide-' + accordionParentSubslide);
-        } else {
-            Bridge.Sub.show('subslide-' + $(this).attr('data-accordion-subslide'));
-        }
-    });
     $(".slide-navigation__button--prev, .slide-navigation__button--next").click(function() {
         $(".elite-plus-all-contract-image").toggleClass("swap-image");
     });

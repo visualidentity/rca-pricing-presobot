@@ -332,21 +332,24 @@ article#subscription-options-fy25 {
   }
   .arrow {
     position: fixed;
-    width: 60px;
-    height: 60px;
-    right: 34px;
-    bottom: 30px;
+    width: 54px;
+    height: 54px;
+    right: 44px;
     cursor: pointer;
     z-index: 999;
+    &.disable {
+      opacity:0.3;
+      cursor:default;
+    }
     &-down {
-      background: url("img/arrow-down.png");
-      background-size: 60px 60px;
-      background-repeat: no-repeat;
+      background: url("./img/arrow-down.svg");
+      background-size: 54px 54px;
+      bottom: 40px;
     }
     &-up {
-      background: url("img/arrow-up.png");
-      background-size: 60px 60px;
-      background-repeat: no-repeat;
+      background: url("./img/arrow-up.svg");
+      background-size: 54px 54px;
+      bottom: 110px;
     }
   }
   .o-navigation {

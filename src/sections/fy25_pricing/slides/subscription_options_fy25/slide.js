@@ -233,12 +233,16 @@ new Slide({
       var $arrowUp = $('[data-arrow-up]'),
         $arrowDown = $('[data-arrow-down]');
 
-      $arrowDown.on('click', function() {
-        Bridge.Sub.show('subslide-2');
-      });
+      $arrowDown.on('click', function() { 
+        if(!$(this).hasClass("disable")) {
+          Bridge.Sub.show('subslide-2');
+        }
+      }); 
 
       $arrowUp.on('click', function() {
-        Bridge.Sub.show('subslide-1');
+        if(!$(this).hasClass("disable")) {
+          Bridge.Sub.show('subslide-1');
+        }
       });
     }
   }
