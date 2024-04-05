@@ -53,6 +53,7 @@ sections:
       - { key: enhanced_all_contract_fy25, title: 'Subscriptions - Enhanced All' }
       - { key: subscription_options_fy25, title: 'Subscriptions - Options', tags: [subslide_container] }
       - { key: elite_plus_get_you_noticed, title: 'Elite Plus gets you noticed' }
+      - { key: ignite, title: 'Ignite' }
   - key: thank_you
     title: 'Thank You'
 content_editors:

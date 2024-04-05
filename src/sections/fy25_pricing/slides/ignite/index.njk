@@ -1,0 +1,85 @@
+{% set options = {
+	id: "ignite",
+	article_classes: "",
+	ribbonless: true
+} %}
+{% set optionsHeader = {
+	includeReLogo: false
+} %}
+{% extends "./njk/base.njk" %}
+{# import header partial and add to header_block #}
+{% import "./njk/_partials/header-border.njk" as header %}
+{% block header_block %}
+    <header>
+        <div class="slide__breadcrumb">
+          <div class="slide__breadcrumb__icon"></div>
+          <div class="slide__breadcrumb__category" data-companywide-editable="EO0SeYs8L5">Agency Services</div> 
+        </div>
+    </header>
+{% endblock %}
+{% block content %}
+    <section>
+        <div>
+            <div class="slide-header-border__content">
+                <h1 class="slide-header-border__h1" data-companywide-editable="ignite_editable_title-iIYCGK2VEh">
+                    As part of your subscription, you can <br /> power your business with Ignite
+                </h1>
+            </div>
+            <div class="column-group column-group--12">
+                <div class="column column--span-6 inigte-content" data-companywide-editable="ignite_editable_content-z6Ha3Qh9u8"> 
+                    <h4>Powerful insights at your fingertips</h4>
+                    <ul>
+                        <li>Get insights to help you get better results from your advertising <br /> campaigns, including Audience Maximiser.</li>
+                    </ul>
+                    <h4>Digital tools to help you work smarter</h4>
+                    <ul>
+                        <li>Better understand the market with access to comparable listings</li>
+                        <li>Promote your brand and build trust with prospective vendors <br /> through review requests and profile management</li>
+                    </ul>
+                    <h4>Choose how you access Ignite</h4>
+                    <ul>
+                        <li>Have complete flexibility with how you access Ignite.</li>
+                        <li>Download the Ignite App, log in via desktop, or integrate <br /> with your own CRM.</li>
+                    </ul>
+                    <a href="https://ignite.realestate.com.au/" target="_blank" class="cta">Sign in to Ignite today</a>
+                </div>
+                <div class="column column--span-6 column-image">
+                    <div class="ignite__image ignite__image--1 show" data-value="0"></div>
+                    <div class="ignite__image ignite__image--2" data-value="1"></div>
+                    <div class="ignite__image ignite__image--3" data-value="2"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="slide-navigation">
+        <div class="slide-navigation__button slide-navigation__button--prev"></div>
+        <div class="slide-navigation__button slide-navigation__button--next"></div>
+    </div>
+    <footer class="o-footer slide-footer">
+        <div class="ignite-logo"></div>
+        <div class="logo"></div>
+    </footer>
+{% endblock %}
+
+{% block js_rendered %}
+  if(!$("body").hasClass("client")) {
+    $(".slide-navigation__button--prev").click(function() {
+        var $currentIndex = parseFloat($(".ignite__image.show").data("value"));
+        $(".ignite__image").removeClass("show");
+        if($currentIndex == 0) { 
+            $(".ignite__image").eq(2).addClass("show");
+        } else {
+            $(".ignite__image").eq($currentIndex - 1).addClass("show");
+        }
+    });
+    $(".slide-navigation__button--next").click(function() {
+        var $currentIndex = parseFloat($(".ignite__image.show").data("value"));
+        $(".ignite__image").removeClass("show");
+        if($currentIndex == 2) {
+            $(".ignite__image").eq(0).addClass("show");
+        } else {
+            $(".ignite__image").eq($currentIndex + 1).addClass("show");
+        }
+    });
+  }
+{% endblock %}
