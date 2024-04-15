@@ -3,14 +3,13 @@ import Requests from './utils/requests.js';
 import SearchCache from './utils/search-cache.js';
 
 // fields
-import { brochure } from './fieldsets/brochure.js';
 import { agentCode } from './fieldsets/agent-code.js';
 
 // events
 import { onSave } from './fieldsets/on-save.js';
 
 export default function(options) {
-  const { Fieldset, FileUpload, Select, superagent } = options;
+  const { Fieldset, Select} = options;
 
   return new Fieldset({
     fields: function({ data }) {
@@ -64,7 +63,6 @@ export default function(options) {
             };
           }
         }),
-        new FileUpload(brochure(superagent)),
         new Select(agentCode(options))
       ];
     },
